@@ -3,3 +3,8 @@ const editUserAdmin = (id, username, password) => {
   $("#username").val(username);
   $("#password").val(password);
 };
+
+const editGuestUser = (uid, username) => {
+  $("#uid").val(uid);
+  $("#username").val(username);
+};

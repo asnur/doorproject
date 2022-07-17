@@ -48,11 +48,23 @@ $routes->get('/logout', 'Login::logout', ['as' => 'logout']);
 $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->get('/', 'Dashboard::index', ['as' => 'dashboard']);
     $routes->group('management', function ($routes) {
+        //Admin User
         $routes->get('admin_user', 'Management::admin_user', ['as' => 'admin_user']);
         $routes->post('save_admin_user', 'Management::save_admin_user', ['as' => 'save_admin_user']);
         $routes->post('edit_admin_user', 'Management::edit_admin_user', ['as' => 'edit_admin_user']);
         $routes->get('delete_admin_user/(:segment)', 'Management::delete_admin_user/$1', ['as' => 'delete_admin_user']);
+
+        //Guest User
+        $routes->get('guest_user', 'Management::guest_user', ['as' => 'guest_user']);
+        $routes->post('save_guest_user', 'Management::save_guest_user', ['as' => 'save_guest_user']);
+        $routes->post('edit_guest_user', 'Management::edit_guest_user', ['as' => 'edit_guest_user']);
+        $routes->get('delete_guest_user/(:segment)', 'Management::delete_guest_user/$1', ['as' => 'delete_guest_user']);
     });
+});
+
+//API
+$routes->group('api', ['filter' => 'auth'], function ($routes) {
+    $routes->get('get_entries', 'Management::get_entries', ['as' => 'get_entries']);
 });
 
 /*

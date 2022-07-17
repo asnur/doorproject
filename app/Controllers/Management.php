@@ -4,14 +4,20 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\LoginModel;
+use App\Models\UserModel;
+use App\Models\EntryModel;
 
 class Management extends BaseController
 {
     protected $admin;
+    protected $user;
+    protected $entry;
 
     public function __construct()
     {
         $this->admin = new LoginModel();
+        $this->user  = new UserModel();
+        $this->entry = new EntryModel();
     }
 
     public function admin_user()
@@ -67,5 +73,66 @@ class Management extends BaseController
         $this->admin->delete($id);
         $this->session->setFlashdata('success', 'Data has been deleted');
         return redirect()->route('admin_user');
+    }
+
+    public function guest_user()
+    {
+        $title = 'Guest User';
+        $user  = $this->user->findAll();
+        return view('admin/guest_user', compact('title', 'user'));
+    }
+
+    public function save_guest_user()
+    {
+        $data = [
+            'username' => $this->request->getPost('username'),
+            'uid' => $this->request->getPost('uid')
+        ];
+
+        if (!$this->validate([
+            'username' => 'required|min_length[3]',
+            'uid' => 'required'
+        ])) {
+            $this->session->setFlashdata('error', 'Username or UID is Required');
+            return redirect()->route('guest_user');
+        } else {
+            $this->user->insert($data);
+            $this->session->setFlashdata('success', 'Data has been saved');
+            return redirect()->route('guest_user');
+        }
+    }
+
+    public function get_entries()
+    {
+
+        $uid = $this->entry->select('uid')->first();
+        return json_encode($uid['uid']);
+    }
+
+    public function edit_guest_user()
+    {
+        $data = [
+            'username' => $this->request->getPost('username'),
+            'uid' => $this->request->getPost('uid')
+        ];
+
+        if (!$this->validate([
+            'username' => 'required|min_length[3]',
+            'uid' => 'required'
+        ])) {
+            $this->session->setFlashdata('error', 'Username or UID is Required');
+            return redirect()->route('guest_user');
+        } else {
+            $this->user->update($data['uid'], $data);
+            $this->session->setFlashdata('success', 'Data has been updated');
+            return redirect()->route('guest_user');
+        }
+    }
+
+    public function delete_guest_user($id)
+    {
+        $this->user->delete($id);
+        $this->session->setFlashdata('success', 'Data has been deleted');
+        return redirect()->route('guest_user');
     }
 }
