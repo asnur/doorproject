@@ -60,6 +60,12 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
         $routes->post('edit_guest_user', 'Management::edit_guest_user', ['as' => 'edit_guest_user']);
         $routes->get('delete_guest_user/(:segment)', 'Management::delete_guest_user/$1', ['as' => 'delete_guest_user']);
     });
+
+    //Log
+    $routes->group('log', function ($routes) {
+        $routes->get('accepted_log', 'Loging::accepted_log', ['as' => 'accepted']);
+        $routes->get('rejected_log', 'Loging::rejected_log', ['as' => 'rejected']);
+    });
 });
 
 //API
