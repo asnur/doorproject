@@ -6,7 +6,38 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800"><?= $title ?></h1>
-        <!-- <a href="#" data-toggle="modal" data-target="#addAdminModal" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a> -->
+        <a href="#" data-toggle="modal" data-target="#filterData" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-calendar fa-sm text-white-50"></i> Filter Data</a>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="filterData" tabindex="-1" role="dialog" aria-labelledby="filterDataLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="filterDataLabel">Add Admin User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label class="font-weight-bold">Date</label>
+                    <input type="date" name="date" id="date" class="form-control" placeholder="date">
+                    <label class="font-weight-bold mt-2">Access</label>
+                    <select name="access" id="access" class="form-control">
+                        <option value="">All Access</option>
+                        <?php
+                        foreach ($access as $a) {
+                        ?> <option value="<?= $a['name'] ?>"><?= $a['name'] ?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="filterLog()" data-dismiss="modal" aria-label="Close" class="btn btn-sm btn-primary"><i class="fa fa-paper-plane"></i> Simpan</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Content Row -->
@@ -22,7 +53,7 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                    <table class="table table-striped" id="dataTable">
+                    <table class="table table-striped" id="dataTableLog">
                         <thead>
                             <tr>
                                 <th>UID</th>
