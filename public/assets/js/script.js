@@ -26,3 +26,15 @@ const editController = (name, type, keypad_password, delay, token) => {
   $("#delay").val(delay);
   $("#token").val(token);
 };
+
+$("#access").select2({
+  placeholder: "Select Access",
+  width: "100%",
+});
+
+const access_user = (uid, username, access) => {
+  let list_access = JSON.parse(atob(access));
+  $("#access").val(list_access).trigger("change");
+  $("#uid").val(uid);
+  $("#username").val(username);
+};

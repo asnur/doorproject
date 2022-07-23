@@ -19,6 +19,7 @@
     <link href="/assets/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="/assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link href="/assets/css/custom.css" rel="stylesheet">
 
 </head>
@@ -99,7 +100,7 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= route_to('block_user') ?>">User Block</a>
+                        <a class="collapse-item" href="<?= route_to('user_block') ?>">User Block</a>
                         <a class="collapse-item" href="<?= route_to('controller') ?>">Controller</a>
                     </div>
                 </div>
@@ -229,6 +230,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="/assets/js/script.js"></script>
     <script>
         <?php if (session()->getFlashdata('success')) : ?>

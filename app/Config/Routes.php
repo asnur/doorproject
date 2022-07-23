@@ -69,10 +69,16 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
 
     //Settings
     $routes->group('settings', function ($routes) {
+        //Controller
         $routes->get('controller', 'Mcu::controller', ['as' => 'controller']);
         $routes->post('save_controller', 'Mcu::save_controller', ['as' => 'save_controller']);
         $routes->post('edit_controller', 'Mcu::edit_controller', ['as' => 'edit_controller']);
         $routes->get('delete_controller/(:segment)', 'Mcu::delete_controller/$1', ['as' => 'delete_controller']);
+
+        //User Block
+        $routes->get('user_block', 'Mcu::user_block', ['as' => 'user_block']);
+        $routes->get('blocking_user/(:segment)/(:segment)', 'Mcu::blocking_user/$1/$2', ['as' => 'block_user']);
+        $routes->post('save_access_user', 'Mcu::save_access_user', ['as' => 'save_access_user']);
     });
 });
 

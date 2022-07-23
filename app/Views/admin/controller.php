@@ -61,7 +61,7 @@
                             <option value="ESP32">ESP32</option>
                         </select>
                         <label class="font-weight-bold mt-2">Keypad Password</label>
-                        <input type="text" id="keypad_password" name="keypad_password" class="form-control" placeholder="Keypad Password" required>
+                        <input type="number" pattern="\d*" maxlength="5"> id="keypad_password" name="keypad_password" class="form-control" placeholder="Keypad Password" required>
                         <label class="font-weight-bold mt-2">Close Door Delay (ms)</label>
                         <input type="number" name="delay" id="delay" class="form-control" placeholder="Close Door Delay" required>
                         <label class="font-weight-bold mt-2">Request Key (Automatic Value)</label>
