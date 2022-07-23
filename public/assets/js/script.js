@@ -18,3 +18,11 @@ const filterLog = () => {
   table.column(2).search($("#access").val()).draw();
   table.column(3).search($("#date").val()).draw();
 };
+
+const editController = (name, type, keypad_password, delay, token) => {
+  $("#name").val(name);
+  $("#type").val(type);
+  $("#keypad_password").val(keypad_password);
+  $("#delay").val(delay);
+  $("#token").val(token);
+};

@@ -66,6 +66,14 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
         $routes->get('accepted_log', 'Loging::accepted_log', ['as' => 'accepted']);
         $routes->get('rejected_log', 'Loging::rejected_log', ['as' => 'rejected']);
     });
+
+    //Settings
+    $routes->group('settings', function ($routes) {
+        $routes->get('controller', 'Mcu::controller', ['as' => 'controller']);
+        $routes->post('save_controller', 'Mcu::save_controller', ['as' => 'save_controller']);
+        $routes->post('edit_controller', 'Mcu::edit_controller', ['as' => 'edit_controller']);
+        $routes->get('delete_controller/(:segment)', 'Mcu::delete_controller/$1', ['as' => 'delete_controller']);
+    });
 });
 
 //API
