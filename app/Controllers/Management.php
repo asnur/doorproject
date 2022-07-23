@@ -12,12 +12,14 @@ class Management extends BaseController
     protected $admin;
     protected $user;
     protected $entry;
+    protected $db;
 
     public function __construct()
     {
         $this->admin = new LoginModel();
         $this->user  = new UserModel();
         $this->entry = new EntryModel();
+        $this->db    = \Config\Database::connect();
     }
 
     public function admin_user()
@@ -75,10 +77,20 @@ class Management extends BaseController
         return redirect()->route('admin_user');
     }
 
+    public function set_state()
+    {
+        $state = $this->db->query("DELETE FROM tb_entry");
+        if ($state) {
+            $this->db->query("INSERT INTO tb_entry (state, uid) VALUES (1, '')");
+        }
+    }
+
     public function guest_user()
     {
         $title = 'Guest User';
         $user  = $this->user->findAll();
+        $this->set_state();
+
         return view('admin/guest_user', compact('title', 'user'));
     }
 
@@ -88,6 +100,7 @@ class Management extends BaseController
             'username' => $this->request->getPost('username'),
             'uid' => $this->request->getPost('uid')
         ];
+        $data['block'] = 0;
 
         if (!$this->validate([
             'username' => 'required|min_length[3]',
@@ -97,6 +110,7 @@ class Management extends BaseController
             return redirect()->route('guest_user');
         } else {
             $this->user->insert($data);
+            $this->db->query("DELETE FROM tb_entry");
             $this->session->setFlashdata('success', 'Data has been saved');
             return redirect()->route('guest_user');
         }
@@ -104,7 +118,6 @@ class Management extends BaseController
 
     public function get_entries()
     {
-
         $uid = $this->entry->select('uid')->first();
         return json_encode($uid['uid']);
     }

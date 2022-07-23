@@ -13,8 +13,8 @@ class UserModel extends Model
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
-    protected $protectFields    = true;
-    protected $allowedFields    = ['username', 'block'];
+    protected $protectFields    = false;
+    protected $allowedFields    = ['uid', 'username', 'block'];
 
     // Dates
     protected $useTimestamps = false;

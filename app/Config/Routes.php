@@ -59,6 +59,7 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
         $routes->post('save_guest_user', 'Management::save_guest_user', ['as' => 'save_guest_user']);
         $routes->post('edit_guest_user', 'Management::edit_guest_user', ['as' => 'edit_guest_user']);
         $routes->get('delete_guest_user/(:segment)', 'Management::delete_guest_user/$1', ['as' => 'delete_guest_user']);
+        $routes->get('get_entries', 'Management::get_entries', ['as' => 'get_entries']);
     });
 
     //Log
@@ -83,8 +84,9 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
 });
 
 //API
-$routes->group('api', ['filter' => 'auth'], function ($routes) {
-    $routes->get('get_entries', 'Management::get_entries', ['as' => 'get_entries']);
+$routes->group('api', function ($routes) {
+    $routes->post('dtprAPI', 'Api::index', ['as' => 'dtprAPI']);
+    $routes->post('settings', 'Api::settings', ['as' => 'settings']);
 });
 
 /*

@@ -1,3 +1,5 @@
+let url = window.location.href;
+
 const editUserAdmin = (id, username, password) => {
   $("#id").val(id);
   $("#username").val(username);
@@ -38,3 +40,20 @@ const access_user = (uid, username, access) => {
   $("#uid").val(uid);
   $("#username").val(username);
 };
+
+const get_entries = () => {
+  $.ajax({
+    url: "/admin/management/get_entries",
+    type: "GET",
+    dataType: "JSON",
+    success: function (data) {
+      $("#uid_user").val(data);
+    },
+  });
+};
+
+if (url.includes("guest_user")) {
+  setInterval(() => {
+    get_entries();
+  }, 2000);
+}

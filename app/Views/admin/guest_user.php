@@ -23,7 +23,7 @@
                         <label class="font-weight-bold">Username</label>
                         <input type="text" name="username" class="form-control" placeholder="Username">
                         <label class="font-weight-bold mt-3">UID</label>
-                        <input type="text" name="uid" class="form-control" placeholder="Automatic Value" readonly>
+                        <input type="text" name="uid" id="uid_user" class="form-control" placeholder="Automatic Value" readonly>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-paper-plane"></i> Simpan</button>
