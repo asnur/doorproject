@@ -236,7 +236,7 @@
         <?php if (session()->getFlashdata('success')) : ?>
             Swal.fire({
                 icon: 'success',
-                title: 'Login Successful',
+                title: 'Successful',
                 text: '<?= session()->getFlashdata('success') ?>',
                 type: 'success',
                 confirmButtonText: 'OK'
@@ -245,7 +245,7 @@
         <?php if (session()->getFlashdata('error')) : ?>
             Swal.fire({
                 icon: 'error',
-                title: 'Login Failed',
+                title: 'Failed',
                 text: '<?= session()->getFlashdata('error') ?>',
                 type: 'error',
                 confirmButtonText: 'OK'
