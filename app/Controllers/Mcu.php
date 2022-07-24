@@ -80,7 +80,7 @@ class Mcu extends BaseController
         $uid = $this->request->getPost('uid');
         $access = $this->request->getPost('access');
         $this->list_access->where('uid', $uid)->delete();
-        if (count($access) == 0) {
+        if ($access == null) {
             $this->session->setFlashdata('Failed', 'Yout must select at least one access');
             return redirect()->to('/admin/settings/user_block');
         }
