@@ -2,10 +2,13 @@
 
 namespace App\Controllers;
 
+use CodeIgniter\RESTful\ResourceController;
+use CodeIgniter\API\ResponseTrait;
 use App\Controllers\BaseController;
 
-class API extends BaseController
+class API extends ResourceController
 {
+    use ResponseTrait;
     protected $db;
 
     public function __construct()
@@ -36,7 +39,7 @@ class API extends BaseController
                         'access' => 1
                     ];
                 }
-                return json_encode($data);
+                return $this->respond($data, 200);
             } else {
                 $this->loging($uid, $token);
             }
@@ -46,7 +49,7 @@ class API extends BaseController
                 'message' => 'REQUEST NOT VALID'
             ];
 
-            return json_encode($response);
+            return $this->respond($response, 200);
         }
     }
 
@@ -74,14 +77,14 @@ class API extends BaseController
             ];
         }
 
-        return json_encode($response);
+        return $this->respond($response);
     }
 
     public function settings()
     {
         $token = $this->request->getPost('token');
         if (isset($token)) {
-            $data = $this->db->query("SELECT * FROM tb_entry WHERE token = '$token'")->getFirstRow();
+            $data = $this->db->query("SELECT * FROM tb_mcu WHERE token = '$token'")->getFirstRow();
             $value = [
                 'name' => $data->name,
                 'type' => $data->type,
@@ -103,14 +106,14 @@ class API extends BaseController
                 ];
             }
 
-            return json_encode($response);
+            return $this->respond($response);
         } else {
             $response = [
                 'error' => 400,
                 'result' => 'TOKEN NOT FOUND'
             ];
 
-            return json_encode($response);
+            return $this->respond($response);
         }
     }
 }
