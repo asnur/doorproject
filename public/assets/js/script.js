@@ -48,6 +48,17 @@ const get_entries = () => {
     dataType: "JSON",
     success: function (data) {
       $("#uid_user").val(data);
+      console.log("entries", data);
+    },
+  });
+};
+
+const delete_entries = () => {
+  $.ajax({
+    url: "/api/delete_entries",
+    type: "POST",
+    success: function () {
+      console.log("entries deleted");
     },
   });
 };
@@ -56,4 +67,6 @@ if (url.includes("guest_user")) {
   setInterval(() => {
     get_entries();
   }, 2000);
+} else {
+  delete_entries();
 }

@@ -18,8 +18,9 @@ class API extends ResourceController
 
     public function index()
     {
-        $uid = $this->request->getPost('uid');
-        $token = $this->request->getPost('token');
+        $request = json_decode(file_get_contents('php://input'), true);
+        $uid = $request['data'];
+        $token = $request['key'];
         if (isset($uid) && isset($token)) {
             $data = $this->db->query('SELECT * FROM tb_entry')->getFirstRow();
             if (!empty($data) && $data->state == 1) {
@@ -39,9 +40,9 @@ class API extends ResourceController
                         'access' => 1
                     ];
                 }
-                return $this->respond($data, 200);
+                return $this->respond($data, $data['error']);
             } else {
-                $this->loging($uid, $token);
+                return $this->loging($uid, $token);
             }
         } else {
             $response = [
@@ -49,7 +50,7 @@ class API extends ResourceController
                 'message' => 'REQUEST NOT VALID'
             ];
 
-            return $this->respond($response, 200);
+            return $this->respond($response, 500);
         }
     }
 
@@ -57,6 +58,10 @@ class API extends ResourceController
     {
         $data = count($this->db->query("SELECT * FROM tb_user WHERE uid = '$uid' AND block = '0'")->getResultArray());
         $time = date('Y-m-d H:i:s');
+        $response = [
+            'error' => 500,
+            'message' => 'Tetsted Request'
+        ];
         if ($data > 0) {
             $this->db->query("INSERT INTO tb_log VALUES ('$uid', '$token', '$time', '0')");
             $response = [
@@ -77,7 +82,7 @@ class API extends ResourceController
             ];
         }
 
-        return $this->respond($response);
+        return $this->respond($response, 200);
     }
 
     public function settings()
@@ -106,14 +111,20 @@ class API extends ResourceController
                 ];
             }
 
-            return $this->respond($response);
+            return $this->respond($response, 200);
         } else {
             $response = [
                 'error' => 400,
                 'result' => 'TOKEN NOT FOUND'
             ];
 
-            return $this->respond($response);
+            return $this->respond($response, 200);
         }
+    }
+
+    public function delete_entries()
+    {
+        $this->db->query("DELETE FROM tb_entry");
+        return true;
     }
 }
