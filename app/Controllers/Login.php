@@ -19,7 +19,7 @@ class Login extends BaseController
         ];
 
         $model = new \App\Models\LoginModel();
-        $user  = $model->where('username', $data['username'])->where('password', $data['password'])->first();
+        $user  = $model->where('username', $data['username'])->where('password', md5($data['password']))->first();
 
         if ($user) {
             $this->session->set('user', $user);

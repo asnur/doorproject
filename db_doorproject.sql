@@ -49,13 +49,11 @@ CREATE TABLE `tb_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `tb_admin` (`id`, `username`, `password`) VALUES
-(1, 'admin', 'password');
+(1, 'admin', '5f4dcc3b5aa765d61d8327deb882cf99');
 INSERT INTO `tb_admin` (`id`, `username`, `password`) VALUES
-(2, 'dani', '123');
+(2, 'dani', '202cb962ac59075b964b07152d234b70');
 
 
-INSERT INTO `tb_entry` (`state`, `uid`) VALUES
-(1, '');
 
 
 INSERT INTO `tb_list_access` (`uid`, `token`) VALUES

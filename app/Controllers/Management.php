@@ -33,7 +33,7 @@ class Management extends BaseController
     {
         $data = [
             'username' => $this->request->getPost('username'),
-            'password' => $this->request->getPost('password')
+            'password' => md5($this->request->getPost('password'))
         ];
 
         if (!$this->validate([
