@@ -12,7 +12,7 @@ class AuthFilter implements FilterInterface
     {
         if (!session()->logged_in) {
             echo "invalid";
-            return redirect()->to('/login')->with('error', "Invalid Credential");
+            return redirect()->to('/login');
         }
         // Do something here
     }
