@@ -69,7 +69,7 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                    <table class="table table-responsive table-striped" id="dataTable">
+                    <table class="table table-striped" id="dataTable">
                         <thead>
                             <tr>
                                 <th>#</th>

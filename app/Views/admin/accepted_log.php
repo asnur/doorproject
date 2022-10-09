@@ -53,7 +53,7 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                    <table class="table table-responsive table-striped" id="dataTableLog">
+                    <table class="table table-striped" id="dataTableLog" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>UID</th>
