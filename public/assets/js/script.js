@@ -71,3 +71,18 @@ if (url.includes("guest_user")) {
 } else {
   delete_entries();
 }
+
+const confirm_delete = (elem) => {
+  Swal.fire({
+    title: "Are You Sure to Delete Data?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      $(`#${elem}`).submit();
+    }
+  });
+};

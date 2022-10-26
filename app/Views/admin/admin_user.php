@@ -88,7 +88,8 @@
                                     <td><?= $u['password'] ?></td>
                                     <td>
                                         <button data-toggle="modal" data-target="#editAdminModal" class="btn btn-warning btn-sm" onclick="editUserAdmin(<?= $u['id'] ?>,'<?= $u['username'] ?>','<?= $u['password'] ?>')"><i class="fas fa-edit"></i> Edit</button>
-                                        <a href="<?= route_to('delete_admin_user', $u['id']) ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
+                                        <a href="javascript:void(0)" onclick="confirm_delete('delete_admin')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
+                                        <form action="<?= route_to('delete_admin_user', $u['id']) ?>" id="delete_admin"></form>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
