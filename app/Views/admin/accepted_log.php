@@ -69,7 +69,7 @@
                                     <td><?= $l['uid'] ?></td>
                                     <td><?= $l['username'] ?></td>
                                     <td><?= $l['access'] ?></td>
-                                    <td><?= $l['date_time'] ?></td>
+                                    <td><?= date('d F Y H:i:s', strtotime($l['date_time']))  ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
