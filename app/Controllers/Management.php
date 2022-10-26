@@ -100,7 +100,7 @@ class Management extends BaseController
             'username' => $this->request->getPost('username'),
             'uid' => $this->request->getPost('uid')
         ];
-        $data['block'] = 0;
+        $data['block'] = 1;
 
         if (!$this->validate([
             'username' => 'required|min_length[3]',
