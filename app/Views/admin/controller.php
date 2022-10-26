@@ -82,11 +82,11 @@
                         <h2><?= $m['name'] ?></h2>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"><i class="fa fa-layer-group"></i> <?= $m['type'] ?></li>
-                            <li class="list-group-item"><i class="fa fa-clock"></i> <?= $m['delay'] ?></li>
+                            <li class="list-group-item"><i class="fa fa-clock"></i> <?= $m['delay'] / 1000 ?></li>
                             <li class="list-group-item"><i class="fa fa-lock"></i> <?= $m['keypad_password'] ?></li>
                             <li class="list-group-item"><i class="fa fa-wifi"></i> <?= $m['token'] ?></li>
                         </ul>
-                        <a class="btn btn-md btn-warning w-100 my-3" data-toggle="modal" data-target="#editController" onclick="editController('<?= $m['name'] ?>', '<?= $m['type'] ?>', '<?= $m['keypad_password'] ?>', <?= $m['delay'] ?>, '<?= $m['token'] ?>')">Edit Controller</a>
+                        <a class="btn btn-md btn-warning w-100 my-3" data-toggle="modal" data-target="#editController" onclick="editController('<?= $m['name'] ?>', '<?= $m['type'] ?>', '<?= $m['keypad_password'] ?>', <?= $m['delay'] / 1000 ?>, '<?= $m['token'] ?>')">Edit Controller</a>
                         <a class="btn btn-md btn-danger w-100 my-2" href="javascript:void(0)" onclick="confirm_delete('delete_controller', '<?= $m['token'] ?>')">Delete Controller</a>
                         <form action="<?= route_to('delete_controller', $m['token']) ?>" id="delete_controller-<?= $m['token'] ?>"></form>
                     </div>
