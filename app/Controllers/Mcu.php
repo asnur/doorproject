@@ -30,6 +30,7 @@ class Mcu extends BaseController
     public function save_controller()
     {
         $data = $this->request->getPost();
+        $data['delay'] = $data['delay'] * 1000;
         $this->mcu->insert($data);
         $this->session->setFlashdata('success', 'Data has been saved');
         return redirect()->to('/admin/settings/controller');
@@ -38,6 +39,7 @@ class Mcu extends BaseController
     public function edit_controller()
     {
         $data = $this->request->getPost();
+        $data['delay'] = $data['delay'] * 1000;
         $this->mcu->update($data['token'], $data);
         $this->session->setFlashdata('success', 'Data has been saved');
         return redirect()->to('/admin/settings/controller');

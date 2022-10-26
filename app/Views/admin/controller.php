@@ -56,13 +56,10 @@
                         <label class="font-weight-bold">Controller Name</label>
                         <input type="text" name="name" id="name" class="form-control" placeholder="Controller Name" required>
                         <label class="font-weight-bold mt-2">Controller Type</label>
-                        <select class="form-control" id="type" name="type" required>
-                            <option value="NodeMCU">NodeMCU</option>
-                            <option value="ESP32">ESP32</option>
-                        </select>
+                        <input type="hidden" name="type" value="NodeMCU">
                         <label class="font-weight-bold mt-2">Keypad Password</label>
-                        <input type="number" pattern="\d*" maxlength="5" id="keypad_password" name="keypad_password" class="form-control" placeholder="Keypad Password" required>
-                        <label class="font-weight-bold mt-2">Close Door Delay (ms)</label>
+                        <input type="text" pattern="\d*" minlength="5" maxlength="5" id="keypad_password" name="keypad_password" class="form-control" placeholder="Keypad Password" required>
+                        <label class="font-weight-bold mt-2">Close Door Delay (second)</label>
                         <input type="number" name="delay" id="delay" class="form-control" placeholder="Close Door Delay" required>
                         <label class="font-weight-bold mt-2">Request Key (Automatic Value)</label>
                         <input type="text" name="token" id="token" class="form-control" placeholder="Request Key" readonly>
