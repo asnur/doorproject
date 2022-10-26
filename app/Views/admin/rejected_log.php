@@ -67,7 +67,7 @@
                             <?php foreach ($log as $l) : ?>
                                 <tr>
                                     <td><?= $l['uid'] ?></td>
-                                    <td><?= $l['username'] ?></td>
+                                    <td><?= ($l['username'] == NULL ? '<span class="badge badge-danger">Not Authorized</span>' : $l['username']) ?></td>
                                     <td><?= $l['access'] ?></td>
                                     <td><?=
                                         date('d F Y H:i:s', strtotime($l['date_time'])) ?></td>
