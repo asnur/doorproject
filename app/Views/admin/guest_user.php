@@ -87,8 +87,8 @@
                                     <td><?= $u['username'] ?></td>
                                     <td>
                                         <button data-toggle="modal" onclick="editGuestUser('<?= $u['uid'] ?>', '<?= $u['username'] ?>')" data-target="#editGuestModal" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</button>
-                                        <a href="javascript:void(0)" onclick="confirm_delete('delete_guest_user')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
-                                        <form action="<?= route_to('delete_guest_user', $u['uid']) ?>" id="delete_guest_user"></form>
+                                        <a href="javascript:void(0)" onclick="confirm_delete('delete_guest_user', '<?= $u['uid'] ?>')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
+                                        <form action="<?= route_to('delete_guest_user', $u['uid']) ?>" id="delete_guest_user-<?= $u['uid'] ?>"></form>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

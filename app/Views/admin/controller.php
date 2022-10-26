@@ -90,8 +90,8 @@
                             <li class="list-group-item"><i class="fa fa-wifi"></i> <?= $m['token'] ?></li>
                         </ul>
                         <a class="btn btn-md btn-warning w-100 my-3" data-toggle="modal" data-target="#editController" onclick="editController('<?= $m['name'] ?>', '<?= $m['type'] ?>', '<?= $m['keypad_password'] ?>', <?= $m['delay'] ?>, '<?= $m['token'] ?>')">Edit Controller</a>
-                        <a class="btn btn-md btn-danger w-100 my-2" href="javascript:void(0)" onclick="confirm_delete('delete_controller')">Delete Controller</a>
-                        <form action="<?= route_to('delete_controller', $m['token']) ?>" id="delete_controller"></form>
+                        <a class="btn btn-md btn-danger w-100 my-2" href="javascript:void(0)" onclick="confirm_delete('delete_controller', '<?= $m['token'] ?>')">Delete Controller</a>
+                        <form action="<?= route_to('delete_controller', $m['token']) ?>" id="delete_controller-<?= $m['token'] ?>"></form>
                     </div>
                 </div>
             </div>

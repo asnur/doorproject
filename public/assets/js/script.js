@@ -72,7 +72,7 @@ if (url.includes("guest_user")) {
   delete_entries();
 }
 
-const confirm_delete = (elem) => {
+const confirm_delete = (elem, id) => {
   Swal.fire({
     title: "Are You Sure to Delete Data?",
     icon: "warning",
@@ -82,7 +82,7 @@ const confirm_delete = (elem) => {
     confirmButtonText: "Yes, delete it!",
   }).then((result) => {
     if (result.isConfirmed) {
-      $(`#${elem}`).submit();
+      $(`#${elem}-${id}`).submit();
     }
   });
 };
