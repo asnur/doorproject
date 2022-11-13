@@ -232,6 +232,7 @@
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.13.1/sorting/date-eu.js"></script>
     <script src="/assets/js/script.js"></script>
     <script>
         <?php if (session()->getFlashdata('success')) : ?>

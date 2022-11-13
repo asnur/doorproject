@@ -18,7 +18,8 @@ let table = $("#dataTableLog").DataTable({
   dom: "Bfrtip",
   buttons: ["excelHtml5", "pdfHtml5"],
   responsive: true,
-  order: [[3, "desc"]],
+  "ordering" : false,
+  "bInfo": true,
   columnDefs: [{ targets: 3, type: "date-eu" }],
 });
 
