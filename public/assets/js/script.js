@@ -18,8 +18,8 @@ let table = $("#dataTableLog").DataTable({
   dom: "Bfrtip",
   buttons: ["excelHtml5", "pdfHtml5"],
   responsive: true,
-  "ordering" : false,
-  "bInfo": true,
+  ordering: false,
+  bInfo: true,
   columnDefs: [{ targets: 3, type: "date-eu" }],
 });
 
@@ -45,8 +45,12 @@ const parseDate = (date) => {
 
   let year = dateParse.getFullYear();
   let day = dateParse.getDate();
-  let dateIndo = day + " " + monthNames[month] + " " + year;
-  return dateIndo;
+  if (monthNames[month] == undefined) {
+    return "";
+  } else {
+    let dateIndo = day + " " + monthNames[month] + " " + year;
+    return dateIndo;
+  }
 };
 
 const filterLog = () => {
@@ -55,6 +59,7 @@ const filterLog = () => {
     .column(3)
     .search(parseDate($("#date").val()))
     .draw();
+  console.log(parseDate($("#date").val()), $("#access").val());
 };
 
 const editController = (name, type, keypad_password, delay, token) => {
