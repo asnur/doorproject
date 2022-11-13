@@ -12,17 +12,47 @@ const editGuestUser = (uid, username) => {
 };
 
 let table = $("#dataTableLog").DataTable({
-  "oLanguage": {
-    "sSearch": "Cari : "
+  oLanguage: {
+    sSearch: "Cari : ",
   },
   dom: "Bfrtip",
   buttons: ["excelHtml5", "pdfHtml5"],
   responsive: true,
+  order: [[3, "desc"]],
 });
+
+// Parse Date to Format Month Indonesia
+const parseDate = (date) => {
+  let dateParse = new Date(date);
+  let month = dateParse.getMonth();
+
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  let year = dateParse.getFullYear();
+  let day = dateParse.getDate();
+  let dateIndo = day + " " + monthNames[month] + " " + year;
+  return dateIndo;
+};
 
 const filterLog = () => {
   table.column(2).search($("#access").val()).draw();
-  table.column(3).search($("#date").val()).draw();
+  table
+    .column(3)
+    .search(parseDate($("#date").val()))
+    .draw();
 };
 
 const editController = (name, type, keypad_password, delay, token) => {
