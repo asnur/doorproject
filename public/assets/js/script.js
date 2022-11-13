@@ -19,6 +19,7 @@ let table = $("#dataTableLog").DataTable({
   buttons: ["excelHtml5", "pdfHtml5"],
   responsive: true,
   order: [[3, "desc"]],
+  columnDefs: [{ targets: 3, type: "date-eu" }],
 });
 
 // Parse Date to Format Month Indonesia
