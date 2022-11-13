@@ -18,7 +18,7 @@ class Loging extends BaseController
 
     public function accepted_log()
     {
-        $title = 'Accepted Log';
+        $title = 'Log Diterima';
         $log   = $this->db->query("SELECT l.uid, l.token, u.username, m.name as access, l.date_time FROM tb_log l LEFT JOIN tb_user u ON l.uid=u.uid JOIN tb_mcu m ON m.token=l.token  WHERE l.log_status = 0 ORDER BY l.date_time DESC")->getResultArray();
         $access = $this->db->query("SELECT * FROM tb_mcu")->getResultArray();
 
@@ -27,7 +27,7 @@ class Loging extends BaseController
 
     public function rejected_log()
     {
-        $title = 'Rejected Log';
+        $title = 'Log Ditolak';
         $log   = $this->db->query("SELECT l.uid, l.token, u.username, m.name as access, l.date_time FROM tb_log l LEFT JOIN tb_user u ON l.uid=u.uid JOIN tb_mcu m ON m.token=l.token  WHERE l.log_status = 1 ORDER BY l.date_time DESC")->getResultArray();
         $access = $this->db->query("SELECT * FROM tb_mcu")->getResultArray();
 

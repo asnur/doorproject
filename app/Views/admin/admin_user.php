@@ -5,7 +5,7 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800"><?= $title ?></h1>
-        <a href="#" data-toggle="modal" data-target="#addAdminModal" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
+        <a href="#" data-toggle="modal" data-target="#addAdminModal" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Admin</a>
     </div>
 
     <!-- Modal -->
@@ -14,7 +14,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addAdminModalLabel">Add Admin User</h5>
+                        <h5 class="modal-title" id="addAdminModalLabel">Tambah Admin</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -26,7 +26,8 @@
                         <input type="password" name="password" class="form-control" placeholder="Password">
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-paper-plane"></i> Simpan</button>
+                        <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-check"></i> Simpan</button>
+                        <button data-dismiss="modal" aria-label="Close" class="btn btn-sm btn-danger"><i class="fa fa-times"></i> Batal</button>
                     </div>
                 </div>
             </div>
@@ -38,7 +39,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addAdminModalLabel">Edit Admin User</h5>
+                        <h5 class="modal-title" id="addAdminModalLabel">Edit Admin</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -51,7 +52,8 @@
                         <input type="password" name="password" class="form-control" id="password" placeholder="Password">
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-paper-plane"></i> Simpan</button>
+                        <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-check"></i> Simpan</button>
+                        <button data-dismiss="modal" aria-label="Close" class="btn btn-sm btn-danger"><i class="fa fa-times"></i> Batal</button>
                     </div>
                 </div>
             </div>
@@ -76,7 +78,7 @@
                                 <th>#</th>
                                 <th>Username</th>
                                 <th>Password</th>
-                                <th>Action</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -88,7 +90,7 @@
                                     <td><?= $u['password'] ?></td>
                                     <td>
                                         <button data-toggle="modal" data-target="#editAdminModal" class="btn btn-warning btn-sm" onclick="editUserAdmin(<?= $u['id'] ?>,'<?= $u['username'] ?>','<?= $u['password'] ?>')"><i class="fas fa-edit"></i> Edit</button>
-                                        <a href="javascript:void(0)" onclick="confirm_delete('delete_admin', '<?= $u['id'] ?>')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
+                                        <a href="javascript:void(0)" onclick="confirm_delete('delete_admin', '<?= $u['id'] ?>')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
                                         <form action="<?= route_to('delete_admin_user', $u['id']) ?>" id="delete_admin-<?= $u['id'] ?>"></form>
                                     </td>
                                 </tr>

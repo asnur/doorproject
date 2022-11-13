@@ -5,7 +5,7 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800"><?= $title ?></h1>
-        <a href="#" data-toggle="modal" data-target="#addGuestModal" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
+        <a href="#" data-toggle="modal" data-target="#addGuestModal" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah User</a>
     </div>
 
     <!-- Modal -->
@@ -14,19 +14,20 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addGuestModalLabel">Add Guest User</h5>
+                        <h5 class="modal-title" id="addGuestModalLabel">Tambah User</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <label class="font-weight-bold">Username</label>
-                        <input type="text" name="username" class="form-control" placeholder="Username">
+                        <label class="font-weight-bold">Nama</label>
+                        <input type="text" name="username" class="form-control" placeholder="Nama">
                         <label class="font-weight-bold mt-3">UID</label>
                         <input type="text" name="uid" id="uid_user" class="form-control" placeholder="Automatic Value" readonly>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-paper-plane"></i> Simpan</button>
+                        <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-check"></i> Simpan</button>
+                        <button data-dismiss="modal" aria-label="Close" class="btn btn-sm btn-danger"><i class="fa fa-times"></i> Batal</button>
                     </div>
                 </div>
             </div>
@@ -38,19 +39,20 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addGuestModalLabel">Edit Guest User</h5>
+                        <h5 class="modal-title" id="addGuestModalLabel">Edit User</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <label class="font-weight-bold">Username</label>
-                        <input type="text" name="username" class="form-control" id="username" placeholder="Username">
+                        <label class="font-weight-bold">Nama</label>
+                        <input type="text" name="username" class="form-control" id="username" placeholder="Nama">
                         <label class="font-weight-bold mt-3">UID</label>
                         <input type="text" name="uid" class="form-control" id="uid" placeholder="Automatic Value" readonly>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-paper-plane"></i> Simpan</button>
+                        <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-check"></i> Simpan</button>
+                        <button data-dismiss="modal" aria-label="Close" class="btn btn-sm btn-danger"><i class="fa fa-times"></i> Batal</button>
                     </div>
                 </div>
             </div>
@@ -73,9 +75,9 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Uid</th>
-                                <th>Username</th>
-                                <th>Action</th>
+                                <th>UID</th>
+                                <th>Nama</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -87,7 +89,7 @@
                                     <td><?= $u['username'] ?></td>
                                     <td>
                                         <button data-toggle="modal" onclick="editGuestUser('<?= $u['uid'] ?>', '<?= $u['username'] ?>')" data-target="#editGuestModal" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</button>
-                                        <a href="javascript:void(0)" onclick="confirm_delete('delete_guest_user', '<?= $u['uid'] ?>')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
+                                        <a href="javascript:void(0)" onclick="confirm_delete('delete_guest_user', '<?= $u['uid'] ?>')" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
                                         <form action="<?= route_to('delete_guest_user', $u['uid']) ?>" id="delete_guest_user-<?= $u['uid'] ?>"></form>
                                     </td>
                                 </tr>

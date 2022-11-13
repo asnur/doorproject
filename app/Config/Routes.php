@@ -85,7 +85,7 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
 
 //API
 $routes->group('api', function ($routes) {
-    $routes->post('dtprAPI', 'Api::index', ['as' => 'dtprAPI']);
+    $routes->post('doorAPI', 'Api::index', ['as' => 'doorAPI']);
     $routes->post('settings', 'Api::settings', ['as' => 'settings']);
     $routes->post('delete_entries', 'Api::delete_entries', ['as' => 'delete_entries']);
 });

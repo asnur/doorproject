@@ -1,10 +1,11 @@
 button.dt-button {
-  background: none;
-  border: 1px solid #4e73df;
+  background: #4E73DF;
+  border: 1px solid #4E73DF;
   border-radius: 10px;
+  color: #fff;
 }
 
 button.dt-button:hover {
-  background: #4e73df !important;
+  background: #294bb3 !important;
   color: white;
 }

@@ -5,7 +5,7 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800"><?= $title ?></h1>
-        <a href="#" data-toggle="modal" data-target="#addController" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Add Controller</a>
+        <a href="#" data-toggle="modal" data-target="#addController" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Kontroler Pintu</a>
     </div>
 
     <!-- Modal -->
@@ -14,28 +14,29 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="filterDataLabel">Add New Controller</h5>
+                        <h5 class="modal-title" id="filterDataLabel">Tambah Kontroler Pintu</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <label class="font-weight-bold">Controller Name</label>
-                        <input type="text" name="name" class="form-control" placeholder="Controller Name" required>
-                        <label class="font-weight-bold mt-2">Controller Type</label>
+                        <label class="font-weight-bold">Nama Kontroler Pintu</label>
+                        <input type="text" name="name" class="form-control" placeholder="Nama Kontroler Pintu" required>
+                        <label class="font-weight-bold mt-2">Tipe Kontroler Pintu</label>
                         <select class="form-control" name="type" required>
                             <option value="NodeMCU">NodeMCU</option>
-                            <option value="ESP32">ESP32</option>
+                            <!-- <option value="ESP32">ESP32</option> -->
                         </select>
-                        <label class="font-weight-bold mt-2">Keypad Password</label>
-                        <input type="text" name="keypad_password" class="form-control" placeholder="Keypad Password" required>
-                        <label class="font-weight-bold mt-2">Close Door Delay (ms)</label>
-                        <input type="number" name="delay" class="form-control" placeholder="Close Door Delay" required>
-                        <label class="font-weight-bold mt-2">Request Key (Automatic Value)</label>
+                        <label class="font-weight-bold mt-2">Password Keypad</label>
+                        <input type="text" name="keypad_password" class="form-control" placeholder="Password Keypad" required>
+                        <label class="font-weight-bold mt-2">Delay Kunci Pintu (detik)</label>
+                        <input type="number" name="delay" class="form-control" placeholder="Delay Kunci Pintu (detik)" required>
+                        <label class="font-weight-bold mt-2">Request Token (Automatic Value)</label>
                         <input type="text" name="token" class="form-control" placeholder="Request Key" readonly value="<?= uniqid() ?>">
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-paper-plane"></i> Simpan</button>
+                        <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-check"></i> Simpan</button>
+                        <button data-dismiss="modal" aria-label="Close" class="btn btn-sm btn-danger"><i class="fa fa-times"></i> Batal</button>
                     </div>
                 </div>
             </div>
@@ -47,25 +48,26 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="filterDataLabel">Add New Controller</h5>
+                        <h5 class="modal-title" id="filterDataLabel">Edit Kontroler Pintu</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <label class="font-weight-bold">Controller Name</label>
-                        <input type="text" name="name" id="name" class="form-control" placeholder="Controller Name" required>
-                        <label class="font-weight-bold mt-2">Controller Type</label>
+                        <label class="font-weight-bold">Nama Kontroler Pintu</label>
+                        <input type="text" name="name" id="name" class="form-control" placeholder="Nama Kontroler Pintu" required>
+                        <!-- <label class="font-weight-bold mt-2">Tipe Kontroler Pintu</label> -->
                         <input type="hidden" name="type" value="NodeMCU">
-                        <label class="font-weight-bold mt-2">Keypad Password</label>
-                        <input type="text" pattern="\d*" minlength="5" maxlength="5" id="keypad_password" name="keypad_password" class="form-control" placeholder="Keypad Password" required>
-                        <label class="font-weight-bold mt-2">Close Door Delay (second)</label>
-                        <input type="number" name="delay" id="delay" class="form-control" placeholder="Close Door Delay" required>
-                        <label class="font-weight-bold mt-2">Request Key (Automatic Value)</label>
+                        <label class="font-weight-bold mt-2">Password Keypad</label>
+                        <input type="text" pattern="\d*" minlength="5" maxlength="5" id="keypad_password" name="keypad_password" class="form-control" placeholder="Password Keypad" required>
+                        <label class="font-weight-bold mt-2">Delay Kunci Pintu (detik)</label>
+                        <input type="number" name="delay" id="delay" class="form-control" placeholder="Delay Kunci Pintu (detik)" required>
+                        <label class="font-weight-bold mt-2">Request Token (Automatic Value)</label>
                         <input type="text" name="token" id="token" class="form-control" placeholder="Request Key" readonly>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-paper-plane"></i> Simpan</button>
+                        <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-check"></i> Simpan</button>
+                        <button data-dismiss="modal" aria-label="Close" class="btn btn-sm btn-danger"><i class="fa fa-times"></i> Batal</button>
                     </div>
                 </div>
             </div>
@@ -86,8 +88,8 @@
                             <li class="list-group-item"><i class="fa fa-lock"></i> <?= $m['keypad_password'] ?></li>
                             <li class="list-group-item"><i class="fa fa-wifi"></i> <?= $m['token'] ?></li>
                         </ul>
-                        <a class="btn btn-md btn-warning w-100 my-3" data-toggle="modal" data-target="#editController" onclick="editController('<?= $m['name'] ?>', '<?= $m['type'] ?>', '<?= $m['keypad_password'] ?>', <?= $m['delay'] / 1000 ?>, '<?= $m['token'] ?>')">Edit Controller</a>
-                        <a class="btn btn-md btn-danger w-100 my-2" href="javascript:void(0)" onclick="confirm_delete('delete_controller', '<?= $m['token'] ?>')">Delete Controller</a>
+                        <a class="btn btn-md btn-warning w-100 my-3" data-toggle="modal" data-target="#editController" onclick="editController('<?= $m['name'] ?>', '<?= $m['type'] ?>', '<?= $m['keypad_password'] ?>', <?= $m['delay'] / 1000 ?>, '<?= $m['token'] ?>')">Edit Kontroler Pintu</a>
+                        <a class="btn btn-md btn-danger w-100 my-2" href="javascript:void(0)" onclick="confirm_delete('delete_controller', '<?= $m['token'] ?>')">Hapus Kontroler Pintu</a>
                         <form action="<?= route_to('delete_controller', $m['token']) ?>" id="delete_controller-<?= $m['token'] ?>"></form>
                     </div>
                 </div>

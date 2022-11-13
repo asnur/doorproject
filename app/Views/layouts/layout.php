@@ -50,12 +50,12 @@
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider">
+            <hr class="sidebar-divider my-0">
 
             <!-- Heading -->
-            <div class="sidebar-heading">
+            <!-- <div class="sidebar-heading">
                 Tools
-            </div>
+            </div> -->
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -65,17 +65,19 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= route_to('accepted') ?>">Accepted</a>
-                        <a class="collapse-item" href="<?= route_to('rejected') ?>">Rejected</a>
+                        <a class="collapse-item" href="<?= route_to('accepted') ?>">Diterima</a>
+                        <a class="collapse-item" href="<?= route_to('rejected') ?>">Ditolak</a>
                     </div>
                 </div>
             </li>
+
+            <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-users"></i>
-                    <span>Management</span>
+                    <span>Manajemen</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
@@ -85,30 +87,25 @@
                 </div>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Addons
-            </div>
+            <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Settings</span>
+                    <span>Pengaturan</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?= route_to('user_block') ?>">User Block</a>
-                        <a class="collapse-item" href="<?= route_to('controller') ?>">Controller</a>
+                        <a class="collapse-item" href="<?= route_to('user_block') ?>">Blok User</a>
+                        <a class="collapse-item" href="<?= route_to('controller') ?>">Kontroler Pintu</a>
                     </div>
                 </div>
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+            <hr class="sidebar-divider">
+            <!-- <hr class="sidebar-divider d-none d-md-block"> -->
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">

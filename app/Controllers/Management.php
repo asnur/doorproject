@@ -24,7 +24,7 @@ class Management extends BaseController
 
     public function admin_user()
     {
-        $title = 'Admin User';
+        $title = 'Manajemen Admin';
         $user  = $this->admin->findAll();
         return view('admin/admin_user', compact('title', 'user'));
     }
@@ -54,7 +54,7 @@ class Management extends BaseController
         $data = [
             'id' => $this->request->getPost('id'),
             'username' => $this->request->getPost('username'),
-            'password' => $this->request->getPost('password')
+            'password' => md5($this->request->getPost('password'))
         ];
 
         if (!$this->validate([
@@ -87,7 +87,7 @@ class Management extends BaseController
 
     public function guest_user()
     {
-        $title = 'Guest User';
+        $title = 'Manajemen User';
         $user  = $this->user->findAll();
         $this->set_state();
 

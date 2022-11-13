@@ -22,7 +22,7 @@ class Mcu extends BaseController
 
     public function controller()
     {
-        $title = 'Controller';
+        $title = 'Pengaturan Kontroler Pintu';
         $mcu    = $this->mcu->findAll();
         return view('admin/controller', compact('title', 'mcu'));
     }
@@ -54,7 +54,7 @@ class Mcu extends BaseController
 
     public function user_block()
     {
-        $title = 'User Block';
+        $title = 'Pengaturan Blok User';
         $user    = $this->user->findAll();
         $access  = $this->mcu->findAll();
         foreach ($user as $i => $u) {

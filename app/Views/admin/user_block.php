@@ -14,7 +14,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="accessUserModalLabel">Access User</h5>
+                        <h5 class="modal-title" id="accessUserModalLabel">Akses User</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -22,9 +22,9 @@
                     <div class="modal-body">
                         <label class="font-weight-bold">UID</label>
                         <input type="text" name="uid" id="uid" class="form-control" placeholder="Automatic Value" readonly>
-                        <label class="font-weight-bold mt-2">Username</label>
+                        <label class="font-weight-bold mt-2">Nama</label>
                         <input type="text" class="form-control" placeholder="Username" id="username" readonly>
-                        <label class="font-weight-bold mt-2">Access</label>
+                        <label class="font-weight-bold mt-2">Akses</label>
                         <select name="access[]" multiple="multiple" id="access" class="form-control w-100">
                             <?php
                             foreach ($access as $a) {
@@ -35,7 +35,8 @@
                         </select>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-paper-plane"></i> Simpan</button>
+                        <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-check"></i> Simpan</button>
+                        <button data-dismiss="modal" aria-label="Close" class="btn btn-sm btn-danger"><i class="fa fa-times"></i> Batal</button>
                     </div>
                 </div>
             </div>
@@ -60,9 +61,9 @@
                             <tr>
                                 <th>#</th>
                                 <th>UID</th>
-                                <th>Username</th>
+                                <th>Nama</th>
                                 <th>Status</th>
-                                <th>Action</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -74,14 +75,14 @@
                                     <td><?= $u['username'] ?></td>
                                     <td>
                                         <?php if ($u['block'] == 0) : ?>
-                                            <span class="badge badge-success">Active</span>
+                                            <span class="badge badge-success">Aktif</span>
                                         <?php else : ?>
-                                            <span class="badge badge-danger">Blocked</span>
+                                            <span class="badge badge-danger">Terblokir</span>
                                         <?php endif; ?>
                                     </td>
                                     <td>
-                                        <a href="<?= route_to('block_user', $u['uid'], $u['block'] == 0 ? 'block' : 'unblock') ?>" class="btn btn-warning btn-sm"><?= $u['block'] == 0 ? 'Block User' : 'Unblock User' ?></a>
-                                        <a href="javascript:void(0)" onclick="access_user('<?= $u['uid'] ?>', '<?= $u['username'] ?>', '<?= base64_encode(json_encode($u['access'])) ?>')" data-toggle="modal" data-target="#accessUserModal" class=" btn btn-primary btn-sm"> User Access</a>
+                                        <a href="<?= route_to('block_user', $u['uid'], $u['block'] == 0 ? 'block' : 'unblock') ?>" class="btn btn-warning btn-sm"><?= $u['block'] == 0 ? 'Blokir User' : 'Buka Blokir User' ?></a>
+                                        <a href="javascript:void(0)" onclick="access_user('<?= $u['uid'] ?>', '<?= $u['username'] ?>', '<?= base64_encode(json_encode($u['access'])) ?>')" data-toggle="modal" data-target="#accessUserModal" class=" btn btn-primary btn-sm"> Akses User</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

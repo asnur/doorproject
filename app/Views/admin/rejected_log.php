@@ -20,9 +20,9 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label class="font-weight-bold">Date</label>
+                    <label class="font-weight-bold">Tanggal</label>
                     <input type="date" name="date" id="date" class="form-control" placeholder="date">
-                    <label class="font-weight-bold mt-2">Access</label>
+                    <label class="font-weight-bold mt-2">Akses</label>
                     <select name="access" id="access" class="form-control">
                         <option value="">All Access</option>
                         <?php
@@ -34,7 +34,8 @@
                     </select>
                 </div>
                 <div class="modal-footer">
-                    <button onclick="filterLog()" data-dismiss="modal" aria-label="Close" class="btn btn-sm btn-primary"><i class="fa fa-paper-plane"></i> Simpan</button>
+                    <button onclick="filterLog()" data-dismiss="modal" aria-label="Close" class="btn btn-sm btn-success"><i class="fa fa fa-check"></i> Simpan</button>
+                    <button data-dismiss="modal" aria-label="Close" class="btn btn-sm btn-danger"><i class="fa fa-times"></i> Batal</button>
                 </div>
             </div>
         </div>
@@ -57,9 +58,9 @@
                         <thead>
                             <tr>
                                 <th>UID</th>
-                                <th>Username</th>
-                                <th>Access</th>
-                                <th>Date Time</th>
+                                <th>Nama</th>
+                                <th>Akses</th>
+                                <th>Waktu</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -67,7 +68,7 @@
                             <?php foreach ($log as $l) : ?>
                                 <tr>
                                     <td><?= $l['uid'] ?></td>
-                                    <td><?= ($l['username'] == NULL ? '<span class="badge badge-danger">Not Authorized</span>' : $l['username']) ?></td>
+                                    <td><?= ($l['username'] == NULL ? '<span class="badge badge-danger">Tidak Terdaftar</span>' : $l['username']) ?></td>
                                     <td><?= $l['access'] ?></td>
                                     <td><?=
                                         date('d F Y H:i:s', strtotime($l['date_time'])) ?></td>

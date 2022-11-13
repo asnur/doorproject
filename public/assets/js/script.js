@@ -12,8 +12,11 @@ const editGuestUser = (uid, username) => {
 };
 
 let table = $("#dataTableLog").DataTable({
+  "oLanguage": {
+    "sSearch": "Cari : "
+  },
   dom: "Bfrtip",
-  buttons: ["copyHtml5", "excelHtml5", "csvHtml5", "pdfHtml5"],
+  buttons: ["excelHtml5", "pdfHtml5"],
   responsive: true,
 });
 
@@ -31,7 +34,7 @@ const editController = (name, type, keypad_password, delay, token) => {
 };
 
 $("#access").select2({
-  placeholder: "Select Access",
+  placeholder: "Pilih Akses",
   width: "100%",
 });
 
@@ -74,12 +77,13 @@ if (url.includes("guest_user")) {
 
 const confirm_delete = (elem, id) => {
   Swal.fire({
-    title: "Are You Sure to Delete Data?",
+    title: "Apakah anda yakin ingin menghapus data ?",
     icon: "warning",
     showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, delete it!",
+    confirmButtonColor: "#1CC789",
+    cancelButtonColor: "#E33A29",
+    confirmButtonText: "Iya",
+    cancelButtonText: "Tidak",
   }).then((result) => {
     if (result.isConfirmed) {
       $(`#${elem}-${id}`).submit();
