@@ -21,9 +21,9 @@
                     </div>
                     <div class="modal-body">
                         <label class="font-weight-bold">Username</label>
-                        <input type="text" name="username" minlength="3" required oninvalid="this.setCustomValidity('Enter User Name Here')" class="form-control" placeholder="Username">
+                        <input type="text" name="username" minlength="3" required oninvalid="invalid_alert(this, 'username')" class="form-control" placeholder="Username">
                         <label class="font-weight-bold mt-3">Password</label>
-                        <input type="password" name="password" minlength="3" required oninvalid="this.setCustomValidity('Enter Password Here')" class="form-control" placeholder="Password">
+                        <input type="password" name="password" minlength="3" required oninvalid="invalid_alert(this, 'password')" class="form-control" placeholder="Password">
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-check"></i> Simpan</button>
@@ -46,10 +46,10 @@
                     </div>
                     <div class="modal-body">
                         <label class="font-weight-bold">Username</label>
-                        <input type="text" name="username" class="form-control" minlength="3" required oninvalid="this.setCustomValidity('Enter User Name Here')" id="username" placeholder="Username">
+                        <input type="text" name="username" class="form-control" minlength="3" required oninvalid="invalid_alert(this, 'username')" id="username" placeholder="Username">
                         <input type="hidden" name="id" class="form-control" id="id" placeholder="Username">
                         <label class="font-weight-bold mt-3">Password</label>
-                        <input type="password" name="password" minlength="3" required oninvalid="this.setCustomValidity('Enter Password Here')" class="form-control" id="password" placeholder="Password">
+                        <input type="password" name="password" minlength="3" required oninvalid="invalid_alert(this, 'password')" class="form-control" id="password" placeholder="Password">
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-check"></i> Simpan</button>

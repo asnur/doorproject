@@ -21,9 +21,9 @@
                     </div>
                     <div class="modal-body">
                         <label class="font-weight-bold">Nama</label>
-                        <input type="text" name="username" required minlength="3" class="form-control" placeholder="Nama">
+                        <input type="text" name="username" required minlength="3" oninvalid="invalid_alert(this, 'username')" class="form-control" placeholder="Nama">
                         <label class="font-weight-bold mt-3">UID</label>
-                        <input type="text" name="uid" id="uid_user" class="form-control" required placeholder="Automatic Value" readonly>
+                        <input type="text" name="uid" id="uid_user" oninvalid="invalid_alert(this, 'UID')" class="form-control" required placeholder="Automatic Value" readonly>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-check"></i> Simpan</button>
@@ -46,9 +46,9 @@
                     </div>
                     <div class="modal-body">
                         <label class="font-weight-bold">Nama</label>
-                        <input type="text" name="username" required minlength="3" class="form-control" id="username" placeholder="Nama">
+                        <input type="text" name="username" required minlength="3" class="form-control" oninvalid="invalid_alert(this, 'username')" id="username" placeholder="Nama">
                         <label class="font-weight-bold mt-3">UID</label>
-                        <input type="text" name="uid" class="form-control" required minlength="3" id="uid" placeholder="Automatic Value" readonly>
+                        <input type="text" name="uid" class="form-control" oninvalid="invalid_alert(this, 'UID')" required minlength="3" id="uid" placeholder="Automatic Value" readonly>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-check"></i> Simpan</button>
