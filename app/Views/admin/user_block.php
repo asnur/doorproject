@@ -72,7 +72,7 @@
                                 <tr>
                                     <td><?= $i++ ?></td>
                                     <td><?= $u['uid'] ?></td>
-                                    <td><?= $u['username'] ?></td>
+                                    <td><?= $u['nama'] ?></td>
                                     <td>
                                         <?php if ($u['block'] == 0) : ?>
                                             <span class="badge badge-success">Aktif</span>
@@ -82,7 +82,7 @@
                                     </td>
                                     <td>
                                         <a href="<?= route_to('block_user', $u['uid'], $u['block'] == 0 ? 'block' : 'unblock') ?>" class="btn btn-warning btn-sm"><?= $u['block'] == 0 ? 'Blokir User' : 'Buka Blokir User' ?></a>
-                                        <a href="javascript:void(0)" onclick="access_user('<?= $u['uid'] ?>', '<?= $u['username'] ?>', '<?= base64_encode(json_encode($u['access'])) ?>')" data-toggle="modal" data-target="#accessUserModal" class=" btn btn-primary btn-sm"> Akses User</a>
+                                        <a href="javascript:void(0)" onclick="access_user('<?= $u['uid'] ?>', '<?= $u['nama'] ?>', '<?= base64_encode(json_encode($u['access'])) ?>')" data-toggle="modal" data-target="#accessUserModal" class=" btn btn-primary btn-sm"> Akses User</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

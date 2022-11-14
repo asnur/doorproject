@@ -97,7 +97,7 @@ class Management extends BaseController
     public function save_guest_user()
     {
         $data = [
-            'username' => $this->request->getPost('username'),
+            'nama' => $this->request->getPost('username'),
             'uid' => $this->request->getPost('uid')
         ];
         $data['block'] = 1;
@@ -125,7 +125,7 @@ class Management extends BaseController
     public function edit_guest_user()
     {
         $data = [
-            'username' => $this->request->getPost('username'),
+            'nama' => $this->request->getPost('username'),
             'uid' => $this->request->getPost('uid')
         ];
 

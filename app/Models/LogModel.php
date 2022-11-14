@@ -14,7 +14,7 @@ class LogModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['uid', 'token', 'date_time', 'log_status'];
+    protected $allowedFields    = ['uid', 'token', 'waktu', 'log_status'];
 
     // Dates
     protected $useTimestamps = false;

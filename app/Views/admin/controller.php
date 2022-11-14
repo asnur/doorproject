@@ -21,7 +21,7 @@
                     </div>
                     <div class="modal-body">
                         <label class="font-weight-bold">Nama Kontroler Pintu</label>
-                        <input type="text" name="name" class="form-control" placeholder="Nama Kontroler Pintu" required>
+                        <input type="text" name="nama_kontroller" class="form-control" placeholder="Nama Kontroler Pintu" required>
                         <label class="font-weight-bold mt-2">Tipe Kontroler Pintu</label>
                         <select class="form-control" name="type" required>
                             <option value="NodeMCU">NodeMCU</option>
@@ -55,7 +55,7 @@
                     </div>
                     <div class="modal-body">
                         <label class="font-weight-bold">Nama Kontroler Pintu</label>
-                        <input type="text" name="name" id="name" class="form-control" placeholder="Nama Kontroler Pintu" required>
+                        <input type="text" name="nama_kontroller" id="name" class="form-control" placeholder="Nama Kontroler Pintu" required>
                         <!-- <label class="font-weight-bold mt-2">Tipe Kontroler Pintu</label> -->
                         <input type="hidden" name="type" value="NodeMCU">
                         <label class="font-weight-bold mt-2">Password Keypad</label>
@@ -81,14 +81,14 @@
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-body text-center">
-                        <h2><?= $m['name'] ?></h2>
+                        <h2><?= $m['nama_kontroller'] ?></h2>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"><i class="fa fa-layer-group"></i> <?= $m['type'] ?></li>
                             <li class="list-group-item"><i class="fa fa-clock"></i> <?= $m['delay'] / 1000 ?></li>
                             <li class="list-group-item"><i class="fa fa-lock"></i> <?= $m['keypad_password'] ?></li>
                             <li class="list-group-item"><i class="fa fa-wifi"></i> <?= $m['token'] ?></li>
                         </ul>
-                        <a class="btn btn-md btn-warning w-100 my-3" data-toggle="modal" data-target="#editController" onclick="editController('<?= $m['name'] ?>', '<?= $m['type'] ?>', '<?= $m['keypad_password'] ?>', <?= $m['delay'] / 1000 ?>, '<?= $m['token'] ?>')">Edit Kontroler Pintu</a>
+                        <a class="btn btn-md btn-warning w-100 my-3" data-toggle="modal" data-target="#editController" onclick="editController('<?= $m['nama_kontroller'] ?>', '<?= $m['type'] ?>', '<?= $m['keypad_password'] ?>', <?= $m['delay'] / 1000 ?>, '<?= $m['token'] ?>')">Edit Kontroler Pintu</a>
                         <a class="btn btn-md btn-danger w-100 my-2" href="javascript:void(0)" onclick="confirm_delete('delete_controller', '<?= $m['token'] ?>')">Hapus Kontroler Pintu</a>
                         <form action="<?= route_to('delete_controller', $m['token']) ?>" id="delete_controller-<?= $m['token'] ?>"></form>
                     </div>

@@ -91,7 +91,7 @@ class API extends ResourceController
         if (isset($token)) {
             $data = $this->db->query("SELECT * FROM tb_mcu WHERE token = '$token'")->getFirstRow();
             $value = [
-                'name' => $data->name,
+                'name' => $data->nama_kontroller,
                 'type' => $data->type,
                 'delay' => $data->delay,
                 'keypad' => $data->keypad_password,

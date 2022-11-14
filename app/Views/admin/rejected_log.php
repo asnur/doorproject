@@ -27,7 +27,7 @@
                         <option value="">All Access</option>
                         <?php
                         foreach ($access as $a) {
-                        ?> <option value="<?= $a['name'] ?>"><?= $a['name'] ?></option>
+                        ?> <option value="<?= $a['nama_kontroller'] ?>"><?= $a['nama_kontroller'] ?></option>
                         <?php
                         }
                         ?>
@@ -68,10 +68,10 @@
                             <?php foreach ($log as $l) : ?>
                                 <tr>
                                     <td><?= $l['uid'] ?></td>
-                                    <td><?= ($l['username'] == NULL ? '<span class="badge badge-danger">Tidak Terdaftar</span>' : $l['username']) ?></td>
+                                    <td><?= ($l['nama'] == NULL ? '<span class="badge badge-danger">Tidak Terdaftar</span>' : $l['nama']) ?></td>
                                     <td><?= $l['access'] ?></td>
                                     <td><?=
-                                        date('d F Y H:i:s', strtotime($l['date_time'])) ?></td>
+                                        date('d F Y H:i:s', strtotime($l['waktu'])) ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

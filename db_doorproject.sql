@@ -12,7 +12,7 @@ CREATE TABLE `tb_admin` (
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `tb_entry` (
   `state` int(2) NOT NULL,
@@ -28,13 +28,13 @@ CREATE TABLE `tb_list_access` (
 CREATE TABLE `tb_log` (
   `uid` varchar(30) NOT NULL,
   `token` varchar(30) NOT NULL,
-  `date_time` datetime NOT NULL,
+  `waktu` datetime NOT NULL,
   `log_status` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `tb_mcu` (
   `token` varchar(30) NOT NULL,
-  `name` varchar(20) NOT NULL,
+  `nama_kontroller` varchar(20) NOT NULL,
   `type` varchar(10) NOT NULL,
   `keypad_password` int(5) NOT NULL,
   `delay` int(6) NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE `tb_mcu` (
 
 CREATE TABLE `tb_user` (
   `uid` varchar(30) NOT NULL,
-  `username` varchar(50) NOT NULL,
+  `nama` varchar(50) NOT NULL,
   `block` int(11) NOT NULL,
   PRIMARY KEY (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -63,13 +63,13 @@ INSERT INTO `tb_list_access` (`uid`, `token`) VALUES
 INSERT INTO `tb_list_access` (`uid`, `token`) VALUES
 ('53E8823E', '6228534b6e7c4');
 
-INSERT INTO `tb_log` (`uid`, `token`, `date_time`, `log_status`) VALUES
+INSERT INTO `tb_log` (`uid`, `token`, `waktu`, `log_status`) VALUES
 ('53E8823E', '6226f59be7766', '2022-03-08 14:41:49', 1);
-INSERT INTO `tb_log` (`uid`, `token`, `date_time`, `log_status`) VALUES
+INSERT INTO `tb_log` (`uid`, `token`, `waktu`, `log_status`) VALUES
 ('BADDCF80', '6226f59be7766', '2022-03-08 14:42:22', 1);
-INSERT INTO `tb_log` (`uid`, `token`, `date_time`, `log_status`) VALUES
+INSERT INTO `tb_log` (`uid`, `token`, `waktu`, `log_status`) VALUES
 ('BADDCF80', '6226f59be7766', '2022-03-08 14:42:41', 1);
-INSERT INTO `tb_log` (`uid`, `token`, `date_time`, `log_status`) VALUES
+INSERT INTO `tb_log` (`uid`, `token`, `waktu`, `log_status`) VALUES
 ('53E8823E', '6226f59be7766', '2022-03-08 14:42:57', 1),
 ('53E8823E', '6226f59be7766', '2022-03-08 14:51:57', 1),
 ('53E8823E', '6226f59be7766', '2022-03-08 14:59:56', 1),
@@ -108,14 +108,12 @@ INSERT INTO `tb_log` (`uid`, `token`, `date_time`, `log_status`) VALUES
 ('BADDCF80', '6228534b6e7c4', '2022-03-11 12:41:36', 0),
 ('53E8823E', '6228534b6e7c4', '2022-03-11 12:43:12', 0);
 
-INSERT INTO `tb_mcu` (`token`, `name`, `type`, `keypad_password`, `delay`) VALUES
-('6226f59be7766', 'Test', 'NodeMCU', 12345, 10000);
-INSERT INTO `tb_mcu` (`token`, `name`, `type`, `keypad_password`, `delay`) VALUES
-('6228534b6e7c4', 'Ruang Kantor', 'NodeMCU', 24685, 5000);
+INSERT INTO `tb_mcu` (`token`, `nama_kontroller`, `type`, `keypad_password`, `delay`) VALUES
+('6228534b6e7c4', 'Ruang Kantor1', 'NodeMCU', 24685, 5000);
 
 
-INSERT INTO `tb_user` (`uid`, `username`, `block`) VALUES
-('53E8823E', 'Khanzzz', 0);
+INSERT INTO `tb_user` (`uid`, `nama`, `block`) VALUES
+('53E8823E', 'Khanzzza', 0);
 
 
 
