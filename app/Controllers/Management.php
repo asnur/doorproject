@@ -37,14 +37,14 @@ class Management extends BaseController
         ];
 
         if (!$this->validate([
-            'username' => 'required|min_length[3]',
-            'password' => 'required|min_length[3]'
+            'username' => 'required|min_length[5]',
+            'password' => 'required|min_length[5]'
         ])) {
-            $this->session->setFlashdata('error', 'Username or Password is Minimal 3 Character and Required');
+            $this->session->setFlashdata('error', 'Username dan Password minimal 5 karakter');
             return redirect()->route('admin_user');
         } else {
             $this->admin->insert($data);
-            $this->session->setFlashdata('success', 'Data has been saved');
+            $this->session->setFlashdata('success', 'Data berhasil disimpan');
             return redirect()->route('admin_user');
         }
     }
@@ -58,14 +58,14 @@ class Management extends BaseController
         ];
 
         if (!$this->validate([
-            'username' => 'required|min_length[3]',
-            'password' => 'required|min_length[3]'
+            'username' => 'required|min_length[5]',
+            'password' => 'required|min_length[5]'
         ])) {
-            $this->session->setFlashdata('error', 'Username or Password is Minimal 3 Character and Required');
+            $this->session->setFlashdata('error', 'Username dan Password minimal 5 karakter');
             return redirect()->route('admin_user');
         } else {
             $this->admin->update($data['id'], $data);
-            $this->session->setFlashdata('success', 'Data has been updated');
+            $this->session->setFlashdata('success', 'Data berhasil diubah');
             return redirect()->route('admin_user');
         }
     }
@@ -73,7 +73,7 @@ class Management extends BaseController
     public function delete_admin_user($id)
     {
         $this->admin->delete($id);
-        $this->session->setFlashdata('success', 'Data has been deleted');
+        $this->session->setFlashdata('success', 'Data berhasil dihapus');
         return redirect()->route('admin_user');
     }
 
@@ -103,15 +103,15 @@ class Management extends BaseController
         $data['block'] = 1;
 
         if (!$this->validate([
-            'username' => 'required|min_length[3]',
+            'username' => 'required|min_length[5]',
             'uid' => 'required'
         ])) {
-            $this->session->setFlashdata('error', 'Username or UID is Required');
+            $this->session->setFlashdata('error', 'Nama atau UID harus diisi');
             return redirect()->route('guest_user');
         } else {
             $this->user->insert($data);
             $this->db->query("DELETE FROM tb_entry");
-            $this->session->setFlashdata('success', 'Data has been saved');
+            $this->session->setFlashdata('success', 'Data berhasil disimpan');
             return redirect()->route('guest_user');
         }
     }
@@ -130,14 +130,14 @@ class Management extends BaseController
         ];
 
         if (!$this->validate([
-            'username' => 'required|min_length[3]',
+            'username' => 'required|min_length[5]',
             'uid' => 'required'
         ])) {
-            $this->session->setFlashdata('error', 'Username or UID is Required');
+            $this->session->setFlashdata('error', 'Nama atau UID harus diisi');
             return redirect()->route('guest_user');
         } else {
             $this->user->update($data['uid'], $data);
-            $this->session->setFlashdata('success', 'Data has been updated');
+            $this->session->setFlashdata('success', 'Data berhasil diubah');
             return redirect()->route('guest_user');
         }
     }
@@ -145,7 +145,7 @@ class Management extends BaseController
     public function delete_guest_user($id)
     {
         $this->user->delete($id);
-        $this->session->setFlashdata('success', 'Data has been deleted');
+        $this->session->setFlashdata('success', 'Data berhasil dihapus');
         return redirect()->route('guest_user');
     }
 }

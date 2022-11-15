@@ -60,7 +60,7 @@ class API extends ResourceController
         $time = date('Y-m-d H:i:s');
         $response = [
             'error' => 500,
-            'message' => 'Tetsted Request'
+            'message' => 'Tested Request'
         ];
         if ($data > 0) {
             $this->db->query("INSERT INTO tb_log VALUES ('$uid', '$token', '$time', '0')");

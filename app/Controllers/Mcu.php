@@ -32,7 +32,7 @@ class Mcu extends BaseController
         $data = $this->request->getPost();
         $data['delay'] = $data['delay'] * 1000;
         $this->mcu->insert($data);
-        $this->session->setFlashdata('success', 'Data has been saved');
+        $this->session->setFlashdata('success', 'Data berhasil disimpan');
         return redirect()->to('/admin/settings/controller');
     }
 
@@ -41,14 +41,14 @@ class Mcu extends BaseController
         $data = $this->request->getPost();
         $data['delay'] = $data['delay'] * 1000;
         $this->mcu->update($data['token'], $data);
-        $this->session->setFlashdata('success', 'Data has been saved');
+        $this->session->setFlashdata('success', 'Data berhasil diubah');
         return redirect()->to('/admin/settings/controller');
     }
 
     public function delete_controller($token)
     {
         $this->mcu->delete($token);
-        $this->session->setFlashdata('success', 'Data has been deleted');
+        $this->session->setFlashdata('success', 'Data berhasil dihapus');
         return redirect()->to('/admin/settings/controller');
     }
 
@@ -73,7 +73,7 @@ class Mcu extends BaseController
     {
         $status = $status == 'block' ? '1' : '0';
         $this->user->update($uid, ['block' => $status]);
-        $this->session->setFlashdata('success', 'Data has been saved');
+        $this->session->setFlashdata('success', 'Data berhasil disimpan');
         return redirect()->to('/admin/settings/user_block');
     }
 
@@ -83,13 +83,13 @@ class Mcu extends BaseController
         $access = $this->request->getPost('access');
         $this->list_access->where('uid', $uid)->delete();
         if ($access == null) {
-            $this->session->setFlashdata('error', 'Yout must select at least one access');
+            $this->session->setFlashdata('error', 'Anda harus memilih setidaknya 1 akses');
             return redirect()->to('/admin/settings/user_block');
         }
         foreach ($access as $a) {
             $this->list_access->insert(['uid' => $uid, 'token' => $a]);
         }
-        $this->session->setFlashdata('success', 'Data has been saved');
+        $this->session->setFlashdata('success', 'Data berhasil disimpan');
         return redirect()->to('/admin/settings/user_block');
     }
 }

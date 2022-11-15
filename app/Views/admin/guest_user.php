@@ -46,9 +46,9 @@
                     </div>
                     <div class="modal-body">
                         <label class="font-weight-bold">Nama</label>
-                        <input type="text" name="nama" required minlength="5" class="form-control" oninvalid="invalid_alert(this, 'Nama')" id="nama" placeholder="Nama">
+                        <input type="text" name="nama" required minlength="5" class="form-control" id="nama" placeholder="Nama">
                         <label class="font-weight-bold mt-3">UID</label>
-                        <input type="text" name="uid" class="form-control" oninvalid="invalid_alert(this, 'UID')" required minlength="3" id="uid" placeholder="Automatic Value" readonly>
+                        <input type="text" name="uid" class="form-control" id="uid" placeholder="Automatic Value" readonly>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-check"></i> Simpan</button>

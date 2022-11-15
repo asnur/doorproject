@@ -79,8 +79,8 @@
             let length = element.value.length;
             if (length == 0) {
                 element.setCustomValidity(`Kolom ${name} tidak boleh kosong`);
-            } else if (length < 3) {
-                element.setCustomValidity(`Kolom ${name} minimal 3 karakter`);
+            } else if (length <= 5) {
+                element.setCustomValidity(`Kolom ${name} minimal 5 karakter`);
             }
         };
         <?php if (session()->getFlashdata('success')) : ?>
