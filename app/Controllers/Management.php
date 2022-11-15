@@ -97,13 +97,13 @@ class Management extends BaseController
     public function save_guest_user()
     {
         $data = [
-            'nama' => $this->request->getPost('username'),
+            'nama' => $this->request->getPost('nama'),
             'uid' => $this->request->getPost('uid')
         ];
         $data['block'] = 1;
 
         if (!$this->validate([
-            'username' => 'required|min_length[5]',
+            'nama' => 'required|min_length[3]',
             'uid' => 'required'
         ])) {
             $this->session->setFlashdata('error', 'Nama atau UID harus diisi');
@@ -125,12 +125,12 @@ class Management extends BaseController
     public function edit_guest_user()
     {
         $data = [
-            'nama' => $this->request->getPost('username'),
+            'nama' => $this->request->getPost('nama'),
             'uid' => $this->request->getPost('uid')
         ];
 
         if (!$this->validate([
-            'username' => 'required|min_length[5]',
+            'nama' => 'required|min_length[3]',
             'uid' => 'required'
         ])) {
             $this->session->setFlashdata('error', 'Nama atau UID harus diisi');
