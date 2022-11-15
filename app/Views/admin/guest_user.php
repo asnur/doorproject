@@ -21,9 +21,9 @@
                     </div>
                     <div class="modal-body">
                         <label class="font-weight-bold">Nama</label>
-                        <input type="text" name="nama" required minlength="3" oninvalid="invalid_alert(this, 'nama')" class="form-control" placeholder="Nama">
+                        <input type="text" name="username" oninvalid="invalid_alert(this, 'username')" required minlength="5" class="form-control" placeholder="Nama">
                         <label class="font-weight-bold mt-3">UID</label>
-                        <input type="text" name="uid" id="uid_user" class="form-control" required oninvalid="invalid_alert(this, 'uid')"placeholder="Automatic Value" readonly>
+                        <input type="text" name="uid" id="uid_user" oninvalid="invalid_alert(this, 'UID')" class="form-control" required placeholder="Automatic Value" readonly>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-check"></i> Simpan</button>
@@ -46,7 +46,7 @@
                     </div>
                     <div class="modal-body">
                         <label class="font-weight-bold">Nama</label>
-                        <input type="text" name="nama" required minlength="5" oninvalid="invalid_alert(this, 'nama')" class="form-control" id="nama" placeholder="Nama">
+                        <input type="text" name="nama" class="form-control" oninvalid="invalid_alert(this, 'Nama')" required minlength="5" id="nama" placeholder="Nama">
                         <label class="font-weight-bold mt-3">UID</label>
                         <input type="text" name="uid" class="form-control" id="uid" placeholder="Automatic Value" readonly>
                     </div>

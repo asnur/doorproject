@@ -21,17 +21,17 @@
                     </div>
                     <div class="modal-body">
                         <label class="font-weight-bold">Nama Kontroler Pintu</label>
-                        <input type="text" name="nama_kontroller" class="form-control" placeholder="Nama Kontroler Pintu" required oninvalid="invalid_alert(this, 'nama kontroler')">
+                        <input type="text" name="nama_kontroller" class="form-control" placeholder="Nama Kontroler Pintu" oninvalid="invalid_alert(this, 'nama kontroler')" required>
                         <label class="font-weight-bold mt-2">Tipe Kontroler Pintu</label>
-                        <select class="form-control" name="type" required oninvalid="invalid_alert(this, 'tipe')">
+                        <select class="form-control" name="type" oninvalid="invalid_alert(this, 'tipe')" required>
                             <option value="NodeMCU">NodeMCU</option>
                             <!-- <option value="ESP32">ESP32</option> -->
                         </select>
                         <label class="font-weight-bold mt-2">Password Keypad</label>
-                        <input type="text" name="keypad_password" class="form-control" placeholder="Password Keypad" required oninvalid="invalid_alert(this, 'keypad password')">
+                        <input type="text" name="keypad_password" class="form-control" placeholder="Password Keypad" oninvalid="invalid_alert(this, 'keypad password')" required>
                         <label class="font-weight-bold mt-2">Delay Kunci Pintu (detik)</label>
-                        <input type="number" name="delay" class="form-control" placeholder="Delay Kunci Pintu (detik)" required oninvalid="invalid_alert(this, 'delay kunci pintu')">
-                        <label class="font-weight-bold mt-2">Request Token (Automatic Value)</label>
+                        <input type="number" name="delay" class="form-control" placeholder="Delay Kunci Pintu (detik)" oninvalid="invalid_alert(this, 'delay kunci pintu')">
+                        <label class="font-weight-bold mt-2" required>Request Token (Automatic Value)</label>
                         <input type="text" name="token" class="form-control" placeholder="Request Key" readonly value="<?= uniqid() ?>">
                     </div>
                     <div class="modal-footer">

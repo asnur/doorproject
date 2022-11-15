@@ -43,10 +43,10 @@
                                     </div>
                                     <form action="<?= route_to('auth') ?>" method="POST" class="user">
                                         <div class="form-group">
-                                            <input type="text" required minlength="5" oninvalid="invalid_alert(this,'username')" id="username" name="username" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Masukkan Username">
+                                            <input type="text" oninvalid="invalid_alert(this,'username')" id="username" name="username" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Masukkan Username" required minlength="5">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" required minlength="5" oninvalid="invalid_alert(this,'password')" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Masukkan Password">
+                                            <input type="password" oninvalid="invalid_alert(this,'password')" required minlength="5" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Masukkan Password">
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
@@ -77,10 +77,15 @@
     <script>
         const invalid_alert = (element, name) => {
             let length = element.value.length;
+            console.log(length);
             if (length == 0) {
                 element.setCustomValidity(`Kolom ${name} tidak boleh kosong`);
-            } else if (length <= 5) {
+            } else if (length < 5) {
                 element.setCustomValidity(`Kolom ${name} minimal 5 karakter`);
+            } else {
+                //reset
+                element.setCustomValidity('');
+
             }
         };
         <?php if (session()->getFlashdata('success')) : ?>
