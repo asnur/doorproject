@@ -46,7 +46,7 @@
                                             <input type="text" required minlength="5" oninvalid="invalid_alert(this, 'Username')" id="username" name="username" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Masukkan Username">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" required minlength="5" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Masukkan Password">
+                                            <input type="password" required minlength="5" name="password" oninvalid="invalid_alert(this, 'Password')" class="form-control form-control-user" id="exampleInputPassword" placeholder="Masukkan Password">
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
@@ -75,6 +75,14 @@
     <script src="/assets/js/sb-admin-2.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+        const invalid_alert = (element, name) => {
+            let length = element.value.length;
+            if (length == 0) {
+                element.setCustomValidity(`Kolom ${name} tidak boleh kosong`);
+            } else if (length < 3) {
+                element.setCustomValidity(`Kolom ${name} minimal 3 karakter`);
+            }
+        };
         <?php if (session()->getFlashdata('success')) : ?>
             Swal.fire({
                 icon: 'success',
