@@ -6,9 +6,9 @@ const editUserAdmin = (id, username, password) => {
   $("#password").val(password);
 };
 
-const editGuestUser = (uid, nama) => {
+const editGuestUser = (uid, username) => {
   $("#uid").val(uid);
-  $("#nama").val(nama);
+  $("#username").val(username);
 };
 
 let table = $("#dataTableLog").DataTable({
