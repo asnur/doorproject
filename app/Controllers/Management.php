@@ -103,7 +103,7 @@ class Management extends BaseController
         $data['block'] = 1;
 
         if (!$this->validate([
-            'nama' => 'required|min_length[3]',
+            'nama' => 'required|min_length[5]',
             'uid' => 'required'
         ])) {
             $this->session->setFlashdata('error', 'Nama atau UID harus diisi');
@@ -130,7 +130,7 @@ class Management extends BaseController
         ];
 
         if (!$this->validate([
-            'nama' => 'required|min_length[3]',
+            'nama' => 'required|min_length[5]',
             'uid' => 'required'
         ])) {
             $this->session->setFlashdata('error', 'Nama atau UID harus diisi');

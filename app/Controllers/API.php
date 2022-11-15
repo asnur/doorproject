@@ -29,7 +29,7 @@ class API extends ResourceController
                     $data = [
                         'error' => 200,
                         'result' => 'add user',
-                        'message' => 'ADD USER OK',
+                        'message' => 'TAMBAH USER OK',
                         'access' => 1
                     ];
                 } else {
@@ -67,7 +67,7 @@ class API extends ResourceController
             $response = [
                 'error' => 200,
                 'resut' => 'access door lock',
-                'message' => 'ACCESS ALLOWED',
+                'message' => 'ACCESS DITERIMA',
                 'uid' => $uid,
                 'access' => 0
             ];
@@ -76,7 +76,7 @@ class API extends ResourceController
             $response = [
                 'error' => 200,
                 'resut' => 'access door lock',
-                'message' => 'ACCESS DENIED',
+                'message' => 'ACCESS DITOLAK',
                 'uid' => $uid,
                 'access' => 1
             ];

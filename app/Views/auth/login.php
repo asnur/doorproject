@@ -43,10 +43,10 @@
                                     </div>
                                     <form action="<?= route_to('auth') ?>" method="POST" class="user">
                                         <div class="form-group">
-                                            <input type="text" required minlength="5" oninvalid="invalid_alert(this, 'Username')" id="username" name="username" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Masukkan Username">
+                                            <input type="text" required minlength="5" oninvalid="invalid_alert(this,'username')" id="username" name="username" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Masukkan Username">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" required minlength="5" name="password" oninvalid="invalid_alert(this, 'Password')" class="form-control form-control-user" id="exampleInputPassword" placeholder="Masukkan Password">
+                                            <input type="password" required minlength="5" oninvalid="invalid_alert(this,'password')" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Masukkan Password">
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login

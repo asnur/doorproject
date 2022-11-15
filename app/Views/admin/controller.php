@@ -21,16 +21,16 @@
                     </div>
                     <div class="modal-body">
                         <label class="font-weight-bold">Nama Kontroler Pintu</label>
-                        <input type="text" name="nama_kontroller" class="form-control" placeholder="Nama Kontroler Pintu" required>
+                        <input type="text" name="nama_kontroller" class="form-control" placeholder="Nama Kontroler Pintu" required oninvalid="invalid_alert(this, 'nama kontroler')">
                         <label class="font-weight-bold mt-2">Tipe Kontroler Pintu</label>
-                        <select class="form-control" name="type" required>
+                        <select class="form-control" name="type" required oninvalid="invalid_alert(this, 'tipe')">
                             <option value="NodeMCU">NodeMCU</option>
                             <!-- <option value="ESP32">ESP32</option> -->
                         </select>
                         <label class="font-weight-bold mt-2">Password Keypad</label>
-                        <input type="text" name="keypad_password" class="form-control" placeholder="Password Keypad" required>
+                        <input type="text" name="keypad_password" class="form-control" placeholder="Password Keypad" required oninvalid="invalid_alert(this, 'keypad password')">
                         <label class="font-weight-bold mt-2">Delay Kunci Pintu (detik)</label>
-                        <input type="number" name="delay" class="form-control" placeholder="Delay Kunci Pintu (detik)" required>
+                        <input type="number" name="delay" class="form-control" placeholder="Delay Kunci Pintu (detik)" required oninvalid="invalid_alert(this, 'delay kunci pintu')">
                         <label class="font-weight-bold mt-2">Request Token (Automatic Value)</label>
                         <input type="text" name="token" class="form-control" placeholder="Request Key" readonly value="<?= uniqid() ?>">
                     </div>
@@ -55,13 +55,13 @@
                     </div>
                     <div class="modal-body">
                         <label class="font-weight-bold">Nama Kontroler Pintu</label>
-                        <input type="text" name="nama_kontroller" id="name" class="form-control" placeholder="Nama Kontroler Pintu" required>
+                        <input type="text" name="nama_kontroller" id="name" class="form-control" placeholder="Nama Kontroler Pintu" required oninvalid="invalid_alert(this, 'nama kontroler')">
                         <!-- <label class="font-weight-bold mt-2">Tipe Kontroler Pintu</label> -->
                         <input type="hidden" name="type" value="NodeMCU">
                         <label class="font-weight-bold mt-2">Password Keypad</label>
-                        <input type="text" pattern="\d*" minlength="5" maxlength="5" id="keypad_password" name="keypad_password" class="form-control" placeholder="Password Keypad" required>
+                        <input type="text" pattern="\d*" minlength="5" maxlength="5" id="keypad_password" name="keypad_password" class="form-control" placeholder="Password Keypad" required oninvalid="invalid_alert(this, 'keypad password')">
                         <label class="font-weight-bold mt-2">Delay Kunci Pintu (detik)</label>
-                        <input type="number" name="delay" id="delay" class="form-control" placeholder="Delay Kunci Pintu (detik)" required>
+                        <input type="number" name="delay" id="delay" class="form-control" placeholder="Delay Kunci Pintu (detik)" required oninvalid="invalid_alert(this, 'delay kunci pintu')">
                         <label class="font-weight-bold mt-2">Request Token (Automatic Value)</label>
                         <input type="text" name="token" id="token" class="form-control" placeholder="Request Key" readonly>
                     </div>

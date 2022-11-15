@@ -6,9 +6,9 @@ const editUserAdmin = (id, username, password) => {
   $("#password").val(password);
 };
 
-const editGuestUser = (uid, username) => {
+const editGuestUser = (uid, nama) => {
   $("#uid").val(uid);
-  $("#username").val(username);
+  $("#nama").val(nama);
 };
 
 let table = $("#dataTableLog").DataTable({
@@ -128,11 +128,11 @@ const confirm_delete = (elem, id) => {
   });
 };
 
-// const invalid_alert = (element, name) => {
-//   let length = element.value.length;
-//   if (length == 0) {
-//     element.setCustomValidity(`Kolom ${name} tidak boleh kosong`);
-//   } else if (length <= 5) {
-//     element.setCustomValidity(`Kolom ${name} minimal 5 karakter`);
-//   }
-// };
+const invalid_alert = (element, name) => {
+  let length = element.value.length;
+  if (length == 0) {
+    element.setCustomValidity(`Kolom ${name} tidak boleh kosong`);
+  } else if (length <= 5) {
+    element.setCustomValidity(`Kolom ${name} minimal 5 karakter`);
+  }
+};
