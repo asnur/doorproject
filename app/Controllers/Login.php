@@ -24,11 +24,11 @@ class Login extends BaseController
         if ($user) {
             $this->session->set('user', $user);
             $this->session->set('logged_in', true);
-            $this->session->setFlashdata('success', 'Login Successful');
+            $this->session->setFlashdata('success', 'Login Berhasil');
             return redirect()->to('/admin');
         }
 
-        $this->session->setFlashdata('error', 'Username or Password is incorrect');
+        $this->session->setFlashdata('error', 'Username atau Password yang anda masukkan salah!');
         return redirect()->to('/login');
     }
 

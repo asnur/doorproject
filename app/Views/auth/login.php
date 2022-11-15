@@ -39,14 +39,14 @@
                                 <div class="p-5">
                                     <div class="text-center">
                                         <img src="/assets/img/smart-door.png" style="width: 15%;">
-                                        <h1 class="h2 text-gray-900 mt-1 mb-4">Door Lock system</h1>
+                                        <h1 class="h2 text-gray-900 mt-1 mb-4">Door Lock System</h1>
                                     </div>
                                     <form action="<?= route_to('auth') ?>" method="POST" class="user">
                                         <div class="form-group">
-                                            <input type="text" name="username" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Username">
+                                            <input type="text" required minlength="5" oninvalid="invalid_alert(this, 'Username')" id="username" name="username" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Masukkan Username">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                                            <input type="password" required minlength="5" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Masukkan Password">
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
@@ -78,19 +78,21 @@
         <?php if (session()->getFlashdata('success')) : ?>
             Swal.fire({
                 icon: 'success',
-                title: 'Login Successful',
+                title: 'Login Berhasil',
                 text: '<?= session()->getFlashdata('success') ?>',
                 type: 'success',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#4E73DF'
             });
         <?php endif; ?>
         <?php if (session()->getFlashdata('error')) : ?>
             Swal.fire({
                 icon: 'error',
-                title: 'Login Failed',
+                title: 'Login Gagal',
                 text: '<?= session()->getFlashdata('error') ?>',
                 type: 'error',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#4E73DF'
             });
         <?php endif; ?>
     </script>

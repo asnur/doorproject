@@ -28,7 +28,7 @@
                         <select name="access[]" multiple="multiple" id="access" required class="form-control w-100">
                             <?php
                             foreach ($access as $a) {
-                            ?> <option value="<?= $a['token'] ?>"><?= $a['name'] ?></option>
+                            ?> <option value="<?= $a['token'] ?>"><?= $a['nama_kontroller'] ?></option>
                             <?php
                             }
                             ?>

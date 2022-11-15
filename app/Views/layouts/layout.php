@@ -238,16 +238,17 @@
         <?php if (session()->getFlashdata('success')) : ?>
             Swal.fire({
                 icon: 'success',
-                title: 'Successful',
+                title: 'Berhasil',
                 text: '<?= session()->getFlashdata('success') ?>',
                 type: 'success',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#4E73DF'
             });
         <?php endif; ?>
         <?php if (session()->getFlashdata('error')) : ?>
             Swal.fire({
                 icon: 'error',
-                title: 'Failed',
+                title: 'Gagal',
                 text: '<?= session()->getFlashdata('error') ?>',
                 type: 'error',
                 confirmButtonText: 'OK'
