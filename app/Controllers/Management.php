@@ -107,13 +107,14 @@ class Management extends BaseController
             'uid' => 'required'
         ])) {
             $this->session->setFlashdata('error', 'Nama atau UID harus diisi');
-            return redirect()->route('guest_user');
+            
         } else {
             $this->user->insert($data);
             $this->db->query("DELETE FROM tb_entry");
             $this->session->setFlashdata('success', 'Data berhasil disimpan');
-            return redirect()->route('guest_user');
+            
         }
+        return redirect()->route('guest_user');
     }
 
     public function get_entries()

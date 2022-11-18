@@ -36,7 +36,7 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', function () {
-    return redirect()->to('/admin');
+    return redirect()->to('/login');
 });
 
 //Auth
@@ -45,8 +45,8 @@ $routes->post('/login', 'Login::login', ['as' => 'auth']);
 $routes->get('/logout', 'Login::logout', ['as' => 'logout']);
 
 //Dashboard
+$routes->get('/dashboard', 'Dashboard::dashboard', ['as' => 'dashboard']);
 $routes->group('admin', ['filter' => 'auth'], function ($routes) {
-    $routes->get('/', 'Dashboard::index', ['as' => 'dashboard']);
     $routes->group('management', function ($routes) {
         //Admin User
         $routes->get('admin_user', 'Management::admin_user', ['as' => 'admin_user']);

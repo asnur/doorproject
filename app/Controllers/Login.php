@@ -25,7 +25,7 @@ class Login extends BaseController
             $this->session->set('user', $user);
             $this->session->set('logged_in', true);
             $this->session->setFlashdata('success', 'Login Berhasil');
-            return redirect()->to('/admin');
+            return redirect()->to('/dashboard');
         }
 
         $this->session->setFlashdata('error', 'Username atau Password yang anda masukkan salah!');

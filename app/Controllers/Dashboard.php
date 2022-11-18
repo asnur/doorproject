@@ -19,7 +19,7 @@ class Dashboard extends BaseController
         $this->log   = new LogModel();
         $this->user  = new UserModel();
     }
-    public function index()
+    public function dashboard()
     {
         $admin = $this->admin->countAllResults();
         $log   = $this->log->countAllResults();

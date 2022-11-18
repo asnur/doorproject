@@ -36,7 +36,7 @@ class API extends ResourceController
                     $data = [
                         'error' => 500,
                         'result' => 'add user',
-                        'message' => 'SERVICE BUSY',
+                        'message' => 'COBA LAGI',
                         'access' => 1
                     ];
                 }
@@ -47,7 +47,7 @@ class API extends ResourceController
         } else {
             $response = [
                 'error' => 500,
-                'message' => 'REQUEST NOT VALID'
+                'message' => 'REQUEST INVALID'
             ];
 
             return $this->respond($response, 500);
@@ -66,8 +66,8 @@ class API extends ResourceController
             $this->db->query("INSERT INTO tb_log VALUES ('$uid', '$token', '$time', '0')");
             $response = [
                 'error' => 200,
-                'resut' => 'access door lock',
-                'message' => 'ACCESS DITERIMA',
+                'result' => 'access door lock',
+                'message' => 'AKSES DITERIMA',
                 'uid' => $uid,
                 'access' => 0
             ];
@@ -75,8 +75,8 @@ class API extends ResourceController
             $this->db->query("INSERT INTO tb_log VALUES ('$uid', '$token', '$time', '1')");
             $response = [
                 'error' => 200,
-                'resut' => 'access door lock',
-                'message' => 'ACCESS DITOLAK',
+                'result' => 'access door lock',
+                'message' => 'AKSES DITOLAK',
                 'uid' => $uid,
                 'access' => 1
             ];
@@ -100,13 +100,13 @@ class API extends ResourceController
             if (empty($data) || empty($value)) {
                 $response = [
                     'error' => 500,
-                    'result' => 'GET SETTINGS',
+                    'result' => 'AMBIL PENGATURAN',
                     'data' => null
                 ];
             } else {
                 $response = [
                     'error' => 200,
-                    'result' => 'GET SETTINGS',
+                    'result' => 'AMBIL PENGATURAN',
                     'data' => $value
                 ];
             }
@@ -115,7 +115,7 @@ class API extends ResourceController
         } else {
             $response = [
                 'error' => 400,
-                'result' => 'TOKEN NOT FOUND'
+                'result' => 'TOKEN TIDAK DITEMUKAN'
             ];
 
             return $this->respond($response, 200);

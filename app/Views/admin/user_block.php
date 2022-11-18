@@ -25,7 +25,7 @@
                         <label class="font-weight-bold mt-2">Nama</label>
                         <input type="text" class="form-control" placeholder="Username" id="username" readonly>
                         <label class="font-weight-bold mt-2">Akses</label>
-                        <select name="access[]" multiple="multiple" id="access" oninvalid="invalid_alert(this, 'akses')" required class="form-control w-100">
+                        <select name="access[]" multiple="multiple" id="access" class="form-control w-100">
                             <?php
                             foreach ($access as $a) {
                             ?> <option value="<?= $a['token'] ?>"><?= $a['nama_kontroller'] ?></option>
