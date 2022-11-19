@@ -23,7 +23,7 @@
                         <label class="font-weight-bold">Nama</label>
                         <input type="text" name="username" oninvalid="invalid_alert(this, 'username')" required minlength="5" class="form-control" placeholder="Nama">
                         <label class="font-weight-bold mt-3">UID</label>
-                        <input type="text" name="uid" id="uid_user" oninvalid="invalid_alert(this, 'UID')" class="form-control" required placeholder="Automatic Value" readonly>
+                        <input type="text" name="uid" id="uid_user" oninvalid="invalid_alert(this, 'UID')" class="form-control" placeholder="Automatic Value" required readonly>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-check"></i> Simpan</button>

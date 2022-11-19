@@ -251,7 +251,8 @@
                 title: 'Gagal',
                 text: '<?= session()->getFlashdata('error') ?>',
                 type: 'error',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#4E73DF'
             });
         <?php endif; ?>
     </script>
