@@ -21,7 +21,7 @@
                     </div>
                     <div class="modal-body">
                         <label class="font-weight-bold">Nama</label>
-                        <input type="text" name="username" oninvalid="invalid_alert(this, 'username')" required minlength="5" class="form-control" placeholder="Nama">
+                        <input type="text" name="nama" oninvalid="invalid_alert(this, 'nama')" required minlength="5" class="form-control" placeholder="Nama">
                         <label class="font-weight-bold mt-3">UID</label>
                         <input type="text" name="uid" id="uid_user" oninvalid="invalid_alert(this, 'UID')" class="form-control" placeholder="Automatic Value" required readonly>
                     </div>
