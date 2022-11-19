@@ -3,9 +3,9 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <div class="d-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800"><?= $title ?></h1>
-        <a href="#" data-toggle="modal" data-target="#addGuestModal" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah User</a>
+        <a href="#" data-toggle="modal" data-target="#addGuestModal" class="d-inline d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah User</a>
     </div>
 
     <!-- Modal -->
@@ -71,7 +71,7 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                    <table class="table table-striped" id="dataTable">
+                    <table class="table table-striped table-responsive-xs" id="dataTable" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>#</th>

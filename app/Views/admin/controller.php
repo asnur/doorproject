@@ -79,7 +79,7 @@
         foreach ($mcu as $m) {
         ?>
             <div class="col-md-3">
-                <div class="card">
+                <div class="card border-primary mb-3">
                     <div class="card-body text-center">
                         <h2><?= $m['nama_kontroller'] ?></h2>
                         <ul class="list-group list-group-flush">

@@ -56,7 +56,7 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                    <table class="table table-striped" id="dataTable">
+                    <table class="table table-striped table-responsive-xs" id="dataTable" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>#</th>
