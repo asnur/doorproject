@@ -104,17 +104,16 @@ class Management extends BaseController
 
         if (!$this->validate([
             'nama' => 'required|min_length[5]',
-            'uid' => 'required'
+            'uid' => 'required|is_unique[tb_user.uid]'
         ])) {
-            $this->session->setFlashdata('error', 'Nama atau UID harus diisi');
+            $this->session->setFlashdata('error', 'UID tidak boleh kosong atau UID sudah terdaftar');
             return redirect()->route('guest_user');
         } else {
             $this->user->insert($data);
             $this->db->query("DELETE FROM tb_entry");
             $this->session->setFlashdata('success', 'Data berhasil disimpan');
             return redirect()->route('guest_user');
-        }
-        
+        } 
     }
 
     public function get_entries()

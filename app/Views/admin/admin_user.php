@@ -72,7 +72,7 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                    <table class="table table-striped table-responsive-xs" id="dataTable" style="width: 100%;">
+                    <table class="table table-striped table-responsive-xs" id="dataTableAdmin" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>#</th>

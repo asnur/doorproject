@@ -58,10 +58,10 @@ class API extends ResourceController
     {
         $data = count($this->db->query("SELECT * FROM tb_user WHERE uid = '$uid' AND block = '0'")->getResultArray());
         $time = date('Y-m-d H:i:s');
-        $response = [
-            'error' => 500,
-            'message' => 'Tested Request'
-        ];
+        // $response = [
+        //     'error' => 500,
+        //     'message' => 'Tested Request'
+        // ];
         if ($data > 0) {
             $this->db->query("INSERT INTO tb_log VALUES ('$uid', '$token', '$time', '0')");
             $response = [

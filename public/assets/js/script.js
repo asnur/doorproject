@@ -23,6 +23,58 @@ let table = $("#dataTableLog").DataTable({
   columnDefs: [{ targets: 3, type: "date-eu" }],
 });
 
+let collect = []
+let startDate, finalDate
+
+$.fn.dataTable.ext.search.push(
+  function (settings, data, dataIndex) {
+    var element = $('#dataTableLog tbody tr').eq(dataIndex)
+
+    collect[dataIndex] = element.find('td').eq(3).attr('data-time') ?? collect[dataIndex]
+
+    var min = new Date(startDate);
+    var max = new Date(finalDate);
+    var date = new Date(collect[dataIndex]);
+
+    if (
+        ( min === null && max === null ) ||
+        ( min === null && date <= max ) ||
+        ( min <= date   && max === null ) ||
+        ( min <= date   && date <= max )
+    ) {
+        return true;
+    }
+    return false;
+  }
+);
+
+$("#dates").daterangepicker({
+  opens: 'left',
+  autoUpdateInput: false,
+  locale: {
+    cancelLabel: 'Clear'
+  },
+  ranges: {
+    'Today': [moment(), moment()],
+    'Yesterday': [moment().subtract(2, 'days'), moment().subtract(1, 'days')],
+    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+    'This Month': [moment().startOf('month'), moment().endOf('month')],
+    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+ }
+}, function (start, end, label) {
+  startDate = start.format('YYYY-MM-DD')
+  finalDate = end.format('YYYY-MM-DD')
+});
+
+$('input[name="dates"]').on('apply.daterangepicker', function(ev, picker) {
+  $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+});
+
+$('input[name="dates"]').on('cancel.daterangepicker', function(ev, picker) {
+  $(this).val('');
+});
+
 // Parse Date to Format Month Indonesia
 const parseDate = (date) => {
   let dateParse = new Date(date);
@@ -54,13 +106,19 @@ const parseDate = (date) => {
 };
 
 const filterLog = () => {
+  table.column('').search('').draw();
   table.column(2).search($("#access").val()).draw();
-  table
-    .column(3)
-    .search(parseDate($("#date").val()))
-    .draw();
   console.log(parseDate($("#date").val()), $("#access").val());
 };
+
+// const filterLog = () => {
+//   table.column(2).search($("#access").val()).draw();
+//   table
+//     .column(3)
+//     .search(parseDate($("#date").val()))
+//     .draw();
+//   console.log(parseDate($("#date").val()), $("#access").val());
+// };
 
 const editController = (name, type, keypad_password, delay, token) => {
   $("#name").val(name);

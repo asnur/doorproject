@@ -21,7 +21,7 @@
                 </div>
                 <div class="modal-body">
                     <label class="font-weight-bold">Tanggal</label>
-                    <input type="date" name="date" id="date" class="form-control" placeholder="date">
+                    <input type="text" name="dates" id="dates" class="form-control" placeholder="Pilih Tanggal">
                     <label class="font-weight-bold mt-2">Akses</label>
                     <select name="access" id="access" class="form-control">
                         <option value="">All Access</option>
@@ -70,8 +70,7 @@
                                     <td><?= $l['uid'] ?></td>
                                     <td><?= ($l['nama'] == NULL ? '<span class="badge badge-danger">Tidak Terdaftar</span>' : $l['nama']) ?></td>
                                     <td><?= $l['access'] ?></td>
-                                    <td><?=
-                                        date('d F Y H:i:s', strtotime($l['waktu'])) ?></td>
+                                    <td data-time="<?= $l['waktu'] ?>"><?= date('d F Y H:i:s', strtotime($l['waktu']))  ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
