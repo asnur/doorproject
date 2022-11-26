@@ -38,8 +38,8 @@
                             <div class="col-lg-12">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <img src="/assets/img/smart-door.png" style="width: 15%;">
-                                        <h1 class="h2 text-gray-900 mt-1 mb-4">Door Lock System</h1>
+                                        <img src="/assets/img/smart-door.png" style="width: 25%;">
+                                        <h1 class="h2 text-gray-900 mt-2 mb-4">Door Lock System</h1>
                                     </div>
                                     <form action="<?= route_to('auth') ?>" method="POST" class="user">
                                         <div class="form-group">
