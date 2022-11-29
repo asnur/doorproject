@@ -26,7 +26,7 @@ let table = $("#dataTableLog, #dataTableAdmin, #dataTableUser").DataTable({
 let collect = [];
 let startDate, finalDate;
 
-$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+const dateRange = (settings, data, dataIndex) => {
   var element = $("#dataTableLog tbody tr").eq(dataIndex);
 
   collect[dataIndex] =
@@ -43,15 +43,10 @@ $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
     (min <= date && date <= max)
   ) {
     return true;
-  } else if (
-    $(".dataTables_filter input").val() == "" ||
-    $(".dataTables_filter input").val() == undefined ||
-    $(".dataTables_filter input").val().length > 0
-  ) {
-    return true;
   }
+
   return false;
-});
+};
 
 $("#dates").daterangepicker(
   {
@@ -121,8 +116,9 @@ const parseDate = (date) => {
 };
 
 const filterLog = () => {
-  table.column(2).search($("#access").val()).draw();
-  console.log(parseDate($("#date").val()), $("#access").val());
+  $.fn.dataTable.ext.search.push(dateRange);
+  table.column(2).search($("#access").val());
+  table.draw();
 };
 
 // const filterLog = () => {
