@@ -11,7 +11,7 @@ const editGuestUser = (uid, nama) => {
   $("#nama").val(nama);
 };
 
-let table = $("#dataTableLog, #dataTableAdmin, #dataTableUser").DataTable({
+let table = $("#dataTableLog").DataTable({
   oLanguage: {
     sSearch: "Cari : ",
   },
@@ -21,6 +21,12 @@ let table = $("#dataTableLog, #dataTableAdmin, #dataTableUser").DataTable({
   ordering: false,
   bInfo: true,
   columnDefs: [{ targets: 3, type: "date-eu" }],
+});
+
+$("#dataTableAdmin, #dataTableUser").DataTable({
+  oLanguage: {
+    sSearch: "Cari : ",
+  },
 });
 
 let collect = [];
