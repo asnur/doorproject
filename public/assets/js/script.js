@@ -89,6 +89,10 @@ $('input[name="dates"]').on("apply.daterangepicker", function (ev, picker) {
 
 $('input[name="dates"]').on("cancel.daterangepicker", function (ev, picker) {
   $(this).val("");
+  $.fn.dataTable.ext.search.splice(
+    $.fn.dataTable.ext.search.indexOf(dateRange, 1)
+  );
+  table.draw();
 });
 
 // Parse Date to Format Month Indonesia
